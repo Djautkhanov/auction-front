@@ -1,0 +1,41 @@
+p{
+    font-size: 13px;
+    margin-left: 110px;
+}
+
+
+
+span{
+    font-size: 25px;
+    margin-left: 110px;
+    font-family:  'Times New Roman', serif;  
+}
+
+.footer{
+    margin-top: 50px;
+}
+
+
+
+
+.footer_block{
+    display: flex;
+}
+
+
+.footerpng img {
+    padding: 5px;
+    margin-right: 5px;
+    width: 15px;
+    
+}
+
+.footerpng{
+    margin-left: 105px;
+
+
+
+}
+
+
+
