@@ -1,9 +1,13 @@
 import './App.css';
-import Footer from './components/Footer/Footer';
+import AuctionAddTime from './components/TimeAuction/TimeAuction';
+import CreateAuction from './components/TimeAuction/addauction';
 
 function App() {
-  return (
-    <Footer/>
+  return (<>
+
+  <AuctionAddTime/>
+  <CreateAuction/>
+  </>
   );
 }
 
