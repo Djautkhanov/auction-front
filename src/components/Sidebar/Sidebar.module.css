@@ -1,0 +1,82 @@
+h1{
+    font-weight: normal;
+    font-size: 20px;
+    margin-left: 190px;
+    margin-top: 80px;
+    border-bottom: 2px solid black;
+    width: 280px;
+    font-weight: bold;
+}
+
+.list li{
+    margin-left: 150px;
+    font-size: 20px;
+  
+
+}
+
+.list  a{
+    list-style-type: none;
+    text-decoration: none;
+    color: black;
+}
+
+
+h2{
+    font-weight: normal;
+    font-size: 20px;
+    margin-left: 190px;
+    margin-top: 80px;
+    border-bottom: 2px solid black;
+    width: 280px;
+    font-weight: bold;
+}
+
+   .checkbox{
+    width: 20px;
+    height: 15px;
+    margin-left: 190px;
+    color: black;
+}
+
+
+ h3{
+    font-weight: normal;
+    font-size: 20px;
+    margin-top: 80px;
+    border-bottom: 2px solid black;
+    width: 280px;
+    font-weight: bold;
+    text-align: left;
+}
+
+
+.range{
+    width: 250px;
+   
+    color: white;
+}
+
+input{
+    width: 130px;
+    height: 30px;
+    margin: 5px;
+}
+
+
+.price{
+    margin-left: 190px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

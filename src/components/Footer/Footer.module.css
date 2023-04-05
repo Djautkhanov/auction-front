@@ -1,6 +1,6 @@
 p{
-    font-size: 13px;
-    margin-left: 110px;
+    font-size: 18px;
+    margin: 5px 0;
 }
 
 
@@ -20,6 +20,8 @@ span{
 
 .footer_block{
     display: flex;
+    gap: 100px;
+    margin-left: 110px;
 }
 
 
@@ -30,12 +32,17 @@ span{
     
 }
 
-.footerpng{
-    margin-left: 105px;
 
 
 
+.footer_info{
+    padding: 0 30px;
+    border-left: 1px solid gray;
+  
 }
 
-
+.footer_info:first-child {
+    border: none;
+    padding: 0;
+}
 
