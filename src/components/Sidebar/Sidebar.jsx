@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './Sidebar.module.css';   
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
  const Sidebar = () => {
 
@@ -11,10 +11,10 @@ import { Link } from 'react-router-dom';
     <div className={styles.lists}>
         <h1>КАТЕГОРИЯ</h1>    
             <ul className={styles.list}> 
-              <Link to='/'><li>Живопись</li></Link>
-              <Link to='/'><li>Скульптура</li></Link>  
-              <Link to='/'><li>Цифровое исскуство</li></Link>
-              <Link to='/'><li>Handmade</li></Link>
+              <NavLink to='/'><li>Живопись</li></NavLink>
+              <NavLink to='/'><li>Скульптура</li></NavLink>  
+              <NavLink to='/'><li>Цифровое исскуство</li></NavLink>
+              <NavLink to='/'><li>Handmade</li></NavLink>
             </ul>
     </div>
     <div className={styles.divtitle}>
