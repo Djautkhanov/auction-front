@@ -1,0 +1,57 @@
+.main_wrapper {
+    height: 324px;
+    display: flex;
+    justify-content: center;
+}
+
+.main_container {
+    border-left: 1px solid;
+    width: 1200px;
+    height: 344px;
+}
+
+.main {
+    margin-left: 20px;
+    width: 1200px;
+    height: 344px;
+    background-image: url('/assets/neven-krcmarek-7m35uR4mjV0-unsplash (1).jpg');
+    background-size: 65%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 48px;
+
+    h1 {
+        padding-bottom: 12px;
+        border-bottom: 5px solid;
+    }
+
+    .btn {
+        button {
+            width: 450px;
+            height: 53px;
+            background: #444;
+            font-size: 26px;
+            font-weight: bold;
+            color: #ffff;
+            text-align: center;
+            justify-content: flex-end;
+            margin-top: 30px;
+            margin-left: 330px;
+            cursor: pointer;
+            border: none;
+        }
+        :hover {
+            background-color: initial;
+            color: #444;
+            border: 3px solid;
+            
+        }
+    }
+
+
+}
+
