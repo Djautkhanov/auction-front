@@ -12,7 +12,7 @@ function App() {
     <div className='app'>
       <Header />
       <AuctionPage/>
-      {/* <AddSlot/>  */}
+      {/* <AddSlot/>  */}  
       <Footer/>
     </div>
   );

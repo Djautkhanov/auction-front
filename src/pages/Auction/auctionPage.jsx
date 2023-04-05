@@ -11,12 +11,12 @@ const AuctionPage = () => {
       <h1 className={styles.title}>АУКЦИОНЫ</h1>
       </div>
       <div className={styles.btnDiv}>
-        <input className={styles.btnInput} type="text" placeholder="Введите ключевые слова"></input>
-        <button>НАЙТИ</button>
+        <input className={styles.btnInput} type="text" placeholder="Введите ключевые слова"></input>       
+        <button>НАЙТИ</button>    
       </div>   
     </div>
     </div>
   );
 };
 
-export default AuctionPage;
+export default AuctionPage;       
