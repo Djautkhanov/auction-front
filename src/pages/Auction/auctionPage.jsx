@@ -19,4 +19,4 @@ const AuctionPage = () => {
   );
 };
 
-export default AuctionPage;       
+export default AuctionPage;                                  
