@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./AddSlot.module.css";
 
 const AddSlot = () => {
-  const [startingPrice, setstartingPrice] = useState("");
+  const [startingPrice, setstartingPrice] = useState("");     
   const [blitzPrice, setblitzPrice] = useState("");
   const [previewUrls, setPreviewUrls] = useState();
   const [done, setDone] = useState("");
@@ -12,7 +12,7 @@ const AddSlot = () => {
     image: null,
     category: "",
   });
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({});        
 
   const validateForm = () => {
     let formIsValid = true;
@@ -20,7 +20,7 @@ const AddSlot = () => {
 
     if (!item.category) {
       errors.category = "Выберите категорию";
-      formIsValid = false;
+      formIsValid = false; 
     }
 
     if (!item.image) {
@@ -91,7 +91,7 @@ const AddSlot = () => {
 
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
-    const imageUrls = files.map((file) => URL.createObjectURL(file));
+    const imageUrls = files.map((file) => URL.createObjectURL(file));         
     setItem((prevState) => ({
       ...prevState,
       image: files,
@@ -119,7 +119,7 @@ const AddSlot = () => {
               value={item.category}
             >
               {" "}
-              <option value="">(не выбрано)</option>
+              <option value="">(не выбрано)</option>          
               <option value="Живопись">Живопись</option>
               <option value="Скульптура">Скульптура</option>
               <option value="Рисунок">Рисунок</option>

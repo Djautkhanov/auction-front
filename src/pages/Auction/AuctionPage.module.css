@@ -1,53 +1,56 @@
-.title{
-    margin-left: 350px;
-    margin-top: 150px;
-    border-bottom: 5px solid black;
-    width: 270px;
-    font-weight: bold;
-    font-size: 40px;
-    font-family: 'Verdana', sans-serif;
+.title {
+  margin-left: 350px;
+  margin-top: 150px;
+  border-bottom: 5px solid black;
+  width: 270px;
+  font-weight: bold;
+  font-size: 40px;
+  font-family: "Verdana", sans-serif;
 }
 
-.btnDiv{
-    display: flex;
-    justify-content: center;
-    margin-top: 20px; 
+.btnDiv {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
-.btnInput{
-    height: 30px;
-    width: 440px;
-    padding: 5px;
+.btnInput {
+  height: 30px;
+  width: 440px;
+  padding: 5px;
+  margin-left: 100px;
 }
 
-button{
-    background-color:dimgrey;
-    width: 100px;
-    border: none;
-    color: white;
-    height: 44px;
-    margin-top: 5px;
-
+button {
+  background-color: dimgrey;
+  width: 100px;
+  border: none;
+  color: white;
+  height: 44px;
+  margin-top: 5px;
 }
 
-.imgDiv{
-    position: relative;
-    background-image: url('../../assets/neven.jpg');
-    width: 1200px;
-    height: 200px;
-    background-size: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.imgDiv {
+  position: relative;
+  background-image: url("../../assets/neven.jpg");
+  width: 1200px;
+  height: 200px;
+  background-size: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 70px;
 }
 
-.wrapper{
-    height: auto;
-    display: flex;
-    justify-content: center;
-    margin-top: 150px;
-    
+.wrapper {
+  height: auto;
+  justify-content: center;
+
+  
 }
 
-
-
+.lot {
+  opacity: 0.5;
+  margin-top: 15px;
+  margin-left: 120px;
+}
