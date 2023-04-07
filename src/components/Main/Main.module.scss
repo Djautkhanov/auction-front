@@ -20,17 +20,26 @@
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
-    font-size: 32px;
+    font-size: 30px;
     font-weight: 800;
     line-height: 48px;
 
     h1 {
         padding-bottom: 12px;
-        border-bottom: 5px solid;
+        border-bottom: 7px solid;
+        font-family: Arial black;
     }
 
     .btn {
-        button {
+        :hover {
+            background-color: initial;
+            color: rgb(0, 0, 0);
+            border: 3px solid rgb(0, 0, 0);
+
+            
+        }
+    
+    button {
             width: 450px;
             height: 53px;
             background: #444;
@@ -43,15 +52,8 @@
             margin-left: 330px;
             cursor: pointer;
             border: none;
-        }
-        :hover {
-            background-color: initial;
-            color: #444;
-            border: 3px solid;
-            
-        }
-    }
-
-
+        
+        
+    }}
 }
 

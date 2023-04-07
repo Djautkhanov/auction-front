@@ -1,19 +1,17 @@
-import Categories from "./components/categories/Categories";
-import Footer from "./components/Footer/Footer";
-import Header from "./components/Header/Header";
-import Main from "./components/Main/Main";
-import AddSlot from "./pages/AddSlot/AddSlot";
-import "./App.css"
-import AuctionAddTime from "./components/TimeAuction/TimeAuction";
+import { Routes, Route } from "react-router-dom"
+import Home from './pages/HomePage/Home'
+import Authorization from "./pages/AuthorizationPage/Authorization";
+import Registration from "./pages/RegistrationPage/Registration";
 
 
 function App() {
   return (
     <div className='app'>
-      <Header />
-      <AddSlot/>
-      {/* <AuctionAddTime/> */}
-      <Footer/>
+      <Routes>
+        <Route path='/' element={<Home />}/>
+        <Route path='/auth' element={<Authorization />} />
+        <Route path='/registration' element={<Registration />} />
+      </Routes>
     </div>
   );
 }
