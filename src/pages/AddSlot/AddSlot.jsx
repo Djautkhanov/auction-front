@@ -1,39 +1,50 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux"
 import styles from "./AddSlot.module.css";
+import { addItems, getItems } from "../../features/itemSlice";
 
 const AddSlot = () => {
+  const dispatch = useDispatch()
   const [startingPrice, setstartingPrice] = useState("");
   const [blitzPrice, setblitzPrice] = useState("");
   const [previewUrls, setPreviewUrls] = useState();
+  const [itemName, setitemName] = useState("");
+  const [description, setdescription] = useState("");
+  const [category, setcategory] = useState("");
   const [done, setDone] = useState("");
-  const [item, setItem] = useState({
-    itemName: "",
-    description: "",
-    image: null,
-    category: "",
-  });
+  const [image, setimage] = useState(null)
+  // const [item, setItem] = useState({
+  //   itemName: "",
+  //   description: "",
+  //   image: null,
+  //   category: "",
+  // });
   const [errors, setErrors] = useState({});
+  
+  useEffect(() => {
+dispatch(getItems())
+  }, [dispatch])
 
   const validateForm = () => {
     let formIsValid = true;
     const errors = {};
 
-    if (!item.category) {
+    if (!category) {
       errors.category = "Выберите категорию";
       formIsValid = false;
     }
 
-    if (!item.image) {
+    if (!image) {
       errors.image = "Загрузите изображение";
       formIsValid = false;
     }
 
-    if (!item.description) {
+    if (!description) {
       errors.description = "Введите описание";
       formIsValid = false;
     }
 
-    if (!item.itemName) {
+    if (!itemName) {
       errors.itemName = "Введите название работы";
       formIsValid = false;
     }
@@ -56,13 +67,7 @@ const AddSlot = () => {
     e.preventDefault();
 
     if (validateForm()) {
-      setItem({
-        itemName: "",
-        description: "",
-        image: null,
-        category: "",
-      });
-
+      dispatch(addItems({itemName ,description, startingPrice, blitzPrice, category, image}))
       setblitzPrice("");
       setPreviewUrls(null);
       setstartingPrice("");
@@ -70,12 +75,14 @@ const AddSlot = () => {
     }
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setItem((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+  const handleChangeItemName = (e) => {
+     setitemName(e.target.value);
+  };
+  const handleChangedescription = (e) => {
+    setdescription(e.target.value);
+  };
+  const handleChangecategory= (e) => {
+    setcategory(e.target.value);
   };
 
   const handleStartingPrice = (e) => {
@@ -88,14 +95,11 @@ const AddSlot = () => {
       setblitzPrice(e.target.value);
     }
   };
-
+console.log();
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
     const imageUrls = files.map((file) => URL.createObjectURL(file));
-    setItem((prevState) => ({
-      ...prevState,
-      image: files,
-    }));
+    setimage(files[0]);
     setPreviewUrls(imageUrls);
   };
 
@@ -115,8 +119,8 @@ const AddSlot = () => {
             <select
               name="category"
               className={styles.category}
-              onChange={handleChange}
-              value={item.category}
+              onChange={handleChangecategory}
+              value={category}
             >
               {" "}
               <option value="">(не выбрано)</option>
@@ -147,7 +151,8 @@ const AddSlot = () => {
                           alt=""
                           className={styles.imgInpt}
                         />
-                    ))
+
+                        ))
                   : ""}
               </div>
             </div>
@@ -160,8 +165,8 @@ const AddSlot = () => {
             <textarea
               className={styles.Description}
               name="description"
-              value={item.description}
-              onChange={handleChange}
+              value={description}
+              onChange={handleChangedescription}
             ></textarea>
           </div>
           {errors.itemName && (
@@ -174,8 +179,8 @@ const AddSlot = () => {
               className={styles.itemName}
               type="text"
               name="itemName"
-              value={item.itemName}
-              onChange={handleChange}
+              value={itemName}
+              onChange={handleChangeItemName}
             />
           </div>
           {errors.startingPrice && (

@@ -9,8 +9,8 @@ const AuctionAddTime = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("start_time", startDate.toISOString());
-    formData.append("end_time", endDate.toISOString());
+    formData.append("start_time", startDate.toISOString("ru"));
+    formData.append("end_time", endDate.toISOString("ru"));
     console.log(startDate);
   };
 
@@ -24,7 +24,7 @@ const AuctionAddTime = () => {
           onChange={(date) => setStartDate(date)}
           showTimeSelect
           timeFormat="HH:mm"
-          timeIntervals={15}
+          timeIntervals={60}
           timeCaption="Время"
           dateFormat="dd.MM.yyyy HH:mm"
           id="start_time"
@@ -38,7 +38,7 @@ const AuctionAddTime = () => {
           onChange={(date) => setEndDate(date)}
           showTimeSelect
           timeFormat="HH:mm"
-          timeIntervals={15}
+          timeIntervals={60}
           timeCaption="Время"
           dateFormat="dd.MM.yyyy HH:mm"
           id="end_time"
