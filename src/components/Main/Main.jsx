@@ -1,6 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styles from '../Main/Main.module.scss'
-
 
 export const Main = () => {
     return (
@@ -8,13 +8,15 @@ export const Main = () => {
             <div className={styles.main_container}>
                 <div className={styles.main}>
                     <div>
-                    <h1>онлайн аукцион <br />
-                        современного искусства
-                    </h1>
-                    <div className={styles.btn}>
-                        <button>
-                            стать участником
-                        </button>
+                        <h1>онлайн аукцион <br />
+                            современного искусства
+                        </h1>
+                        <div className={styles.btn}>
+                            <button>
+                                {/* <Link to='/registration'> */}
+                                    стать участником
+                                {/* </Link> */}
+                            </button>
                         </div>
                     </div>
                 </div>

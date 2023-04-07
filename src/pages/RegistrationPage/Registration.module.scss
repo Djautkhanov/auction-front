@@ -1,0 +1,108 @@
+.background_wrapper {
+    width: 1200px;
+    height: auto;
+    box-shadow: 29px 23px 32px 1px rgba(0, 0, 0, 0.5);
+}
+
+.background {
+    margin-top: 20px;
+    width: 1200px;
+    height: 450px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url('/assets/neven-krcmarek-7m35uR4mjV0-unsplash (1).jpg');
+    display: flex;
+    flex-direction: row-reverse; 
+}
+
+.auth_text {
+    width: 333px;
+    margin-right: 200px;
+    margin-top: 30px;
+    h1 {
+        color: rgb(0, 0, 0);
+        text-align: center;
+        font-size: 46px;
+        font-family: Arial black;
+        border-bottom: 1px solid;
+        border-width: 5px;
+    }
+    a {
+        color: black;
+        margin-left: 5px;
+        margin-bottom: 1px;
+        font-family: arial;
+        font-size: 15px;
+        font-weight: bold;
+    }
+}
+
+.is_account {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 260px;
+    height: 20px;
+    background-color: white;
+    padding-bottom: 1px;
+    border: 2px solid;
+    margin-top: -17px;
+    margin-left: 35px;
+    span {
+        
+        color: black;
+        font-family: arial;
+        font-size: 12px;
+        opacity: 0.5;
+    
+    }
+}
+
+.registration_wrapper {
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    
+}
+
+.registration {
+    margin: 42px;
+    width: auto;
+    height: auto;
+    .btn button {
+        width: 313px;
+        height: 42px;
+        border: 1px solid white;
+        background: rgb(0, 0, 0);
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.4s ease-out;
+    
+        
+        
+    }
+    button:hover {
+        background: white;
+        color: rgb(0, 0, 0);
+        border: 2px solid;
+    }
+}
+
+.inputs_wrapper {
+    text-align: center;
+    input {
+        width: 300px;
+        height: 35px;
+        border: none;
+        border-bottom: 0.5px solid;
+        outline: 0;
+        padding-left: 8px;
+        
+    }
+}
+
