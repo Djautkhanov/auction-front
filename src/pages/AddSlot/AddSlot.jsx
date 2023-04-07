@@ -31,7 +31,7 @@ dispatch(getItems())
 
     if (!category) {
       errors.category = "Выберите категорию";
-      formIsValid = false;
+      formIsValid = false; 
     }
 
     if (!image) {
@@ -123,7 +123,7 @@ console.log();
               value={category}
             >
               {" "}
-              <option value="">(не выбрано)</option>
+              <option value="">(не выбрано)</option>          
               <option value="Живопись">Живопись</option>
               <option value="Скульптура">Скульптура</option>
               <option value="Рисунок">Рисунок</option>
