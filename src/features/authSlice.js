@@ -4,7 +4,8 @@ const initialState = {
     signingUp: false,
     signingIn: false,
     error: null,
-    token: localStorage.getItem("token")
+    token: localStorage.getItem("token"),
+    user: []
 }
 
 export const registration = createAsyncThunk(
@@ -29,12 +30,39 @@ export const registration = createAsyncThunk(
             if (json.error) {
                 return thunkAPI.rejectWithValue(json.error)
             }
+            
             return json
 
         } catch(e) {
             return thunkAPI.rejectWithValue(e)
     }
 
+})
+export const getUserBytoken = createAsyncThunk('getUser/token', async (data, thunkAPI) => {
+    try {
+        const user = await fetch('http://localhost:4000/user/token',{
+            method: 'GET',
+            headers: {
+                Authorization: data ,
+              },
+        })
+        const response = await user.json()
+        if(response.error){
+            return thunkAPI.rejectWithValue(response.error)
+        }
+        localStorage.setItem("userId", response)
+        return response
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error)
+    }
+})
+export const getUsers = createAsyncThunk('getAll/users', async (_, thuckAPI) => {
+    try {
+       const users = await fetch('http://localhost:4000/users') 
+       return await users.json()
+    } catch (error) {
+        thuckAPI.rejectWithValue(error)
+    }
 })
 
 export const authorization = createAsyncThunk(
@@ -100,6 +128,20 @@ const authSlice = createSlice({
             state.error = null
             state.token = action.payload
         })
+        .addCase(getUsers.pending, (state) => {
+            state.signingIn = true
+            state.error = null
+        })
+        .addCase(getUsers.rejected, (state, action) => {
+            state.signingIn = false
+            state.error = action.payload
+        })
+        .addCase(getUsers.fulfilled, (state, action) => {
+            state.signingIn = false
+            state.error = null
+            state.user = action.payload
+        })
+       
     }
 })
 

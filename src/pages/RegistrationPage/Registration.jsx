@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
 import { registration } from '../../features/authSlice'
 import styles from './Registration.module.scss'
 import Header from '../../components/Header/Header'
@@ -8,6 +8,9 @@ import Header from '../../components/Header/Header'
 const Registration = () => {
 
     const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+    const err = useSelector(state => state.authSlice.error)
 
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
@@ -23,6 +26,10 @@ const Registration = () => {
         setLastName('')
         setLogin('')
         setPassword('')
+        
+        if(!err) {
+            navigate('/auth')
+        }
     }
 
     return (

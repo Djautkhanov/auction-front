@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./AuctionPage.module.css";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
+import { useDispatch, useSelector } from "react-redux";
+import { getItems } from "../../features/itemSlice";
 
 const AuctionPage = () => {
+  const [serch, setSerch] = useState("");
+  const dispatch = useDispatch();
+  const items = useSelector((state) => state.itemSlice.items).filter((item) => {
+    return item.name.toLowerCase().includes(serch.toLocaleLowerCase());          
+  });
+
+  useEffect(() => {
+    dispatch(getItems());
+  }, []);
+
   return (
     <>
       <Header />
@@ -28,6 +40,20 @@ const AuctionPage = () => {
                 ></input>
                 <button>НАЙТИ</button>
                 </div>
+              </div>
+              <div className={styles.auctCart}>
+              {items.map((elems) => {
+          return (
+            <div className={styles.items_img}  key={elems.id}>
+              <div className={styles.images}>
+                <img src={`http://localhost:4000/${elems.img}`} /> 
+              </div>
+              <div>{elems.name}</div>
+              <div>{elems.description}</div>
+              <div>{elems.starting_price}</div>      
+            </div>
+          );
+        })}      
               </div>
             </div>
           </div>
