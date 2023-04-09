@@ -4,6 +4,8 @@ import Authorization from "./pages/AuthorizationPage/Authorization";
 import Registration from "./pages/RegistrationPage/Registration";
 import Users from "./components/Users";
 import { useSelector } from "react-redux";
+import AddSlot from "./pages/AddSlot/AddSlot";
+import AuctionPage from "./pages/Auction/auctionPage";
 
 
 function App() {

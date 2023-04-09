@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./AuctionPage.module.css";
-import Sidebar from "../../components/Sidebar/Sidebar";
+// import Sidebar from "../../components/Sidebar/Sidebar";
 
 
 const AuctionPage = () => {
@@ -20,7 +20,7 @@ const AuctionPage = () => {
         </div>
       </div>
       <div className={styles.side_bar}>
-        <Sidebar />
+        {/* <Sidebar /> */}
 
       </div>
     </div>
