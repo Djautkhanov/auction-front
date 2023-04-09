@@ -14,32 +14,32 @@ import Footer from "./components/Footer/Footer";
 function App() {
   const token = useSelector((state) => state.authSlice.token)
 
-  // if (!token) {
-  //   return (
-  //     <Routes>
-  //       <Route path='/' element={<Home />} />
-  //       <Route path='/auth' element={<Authorization />} />
-  //       <Route path='/registration' element={<Registration />} />
-  //       <Route path= '/add/slot' element={<AddSlot/>}/>
-  //       <Route path="/auction" element={<AuctionPage/>}/>
-  //     </Routes>
-  //   )
-  // }
+  if (!token) {
+    return (
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/auth' element={<Authorization />} />
+        <Route path='/registration' element={<Registration />} />
+        <Route path= '/add/slot' element={<AddSlot/>}/>
+        <Route path="/auction" element={<AuctionPage/>}/>
+      </Routes>
+    )
+  }
   return (
-    // <div className='app'>
-    //   <Routes>
-    //     <Route path='/users' element={<Users />} />
-    //     <Route path='/' element={<Home />} />
-    //     <Route path='/auth' element={<Navigate to='/' />} />
-    //     <Route path="/auction" element={<AuctionPage/>}/>
-    //     <Route path= '/add/slot' element={<AddSlot/>}/>
-    //   </Routes>
-    // </div>
-    <>
-    <Header/>
-    <UserPage/>
-    <Footer/>
-    </>
+    <div className='app'>
+      <Routes>
+        <Route path='/users' element={<Users />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/auth' element={<Navigate to='/' />} />
+        <Route path="/auction" element={<AuctionPage/>}/>
+        <Route path= '/add/slot' element={<AddSlot/>}/>
+      </Routes>
+    </div>
+    // <>
+    // //   <Header />
+    // //   <UserPage />
+    // //   <Footer />
+    // </>
   );
 }
 

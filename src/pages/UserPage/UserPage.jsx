@@ -12,7 +12,7 @@ const UserPage = () => {
     dispatch(getUsers())
     }, [dispatch])
     const id = localStorage.getItem("userId")
-    const user = useSelector((state) => state.authSlice.user.find(user => user._id === id));
+    const user = useSelector((state) => state.authSlice.user.find(user => user._id === id)) ;
     
     console.log(user);
 

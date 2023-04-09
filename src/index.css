@@ -15,5 +15,5 @@ code {
 .app {
   width: 1200px;
   justify-content: center;
-  margin-left: 120px;
+  margin: auto;
 }
