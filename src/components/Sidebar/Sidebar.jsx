@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   const [minPrice, setMinPrice] = React.useState("1090");
-  const [maxPrice, setMaxPrice] = React.useState("100900");
+  const [maxPrice, setMaxPrice] = React.useState("100900");        
   const handleChange = (e, value) => {
     setMinPrice(value[0]);
     setMaxPrice(value[1]);

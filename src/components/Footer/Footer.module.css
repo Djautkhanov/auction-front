@@ -5,7 +5,7 @@ p{
 
 .footer span {
   font-size: 25px;
-  margin-left: 110px;
+  margin-left: 33px;
   font-family: "Times New Roman", serif;
 }
 
@@ -18,8 +18,8 @@ p{
 
 .footer_block{
     display: flex;
-    gap: 100px;
-    margin-left: 110px;
+flex-direction: row;
+justify-content: space-around;
 }
 
 .footerpng img {

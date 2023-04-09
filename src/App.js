@@ -4,8 +4,11 @@ import Authorization from "./pages/AuthorizationPage/Authorization";
 import Registration from "./pages/RegistrationPage/Registration";
 import Users from "./components/Users";
 import { useSelector } from "react-redux";
-import AddSlot from "./pages/AddSlot/AddSlot";
 import AuctionPage from "./pages/Auction/auctionPage";
+import AddSlot from "./pages/AddSlot/AddSlot";
+import Header from "./components/Header/Header";
+import UserPage from "./pages/UserPage/UserPage";
+import Footer from "./components/Footer/Footer";
 
 
 function App() {
@@ -28,8 +31,15 @@ function App() {
         <Route path='/users' element={<Users />} />
         <Route path='/' element={<Home />} />
         <Route path='/auth' element={<Navigate to='/' />} />
+        <Route path="/auction" element={<AuctionPage/>}/>
+        <Route path= '/add/slot' element={<AddSlot/>}/>
       </Routes>
     </div>
+    // <>
+    // //   <Header />
+    // //   <UserPage />
+    // //   <Footer />
+    // </>
   );
 }
 

@@ -25,13 +25,13 @@ export const Header = () => {
                     </div>
                     <nav className={styles.menu}>
                         <ul>
-                            <li><a href='/auction'>Аукционы</a></li>
-                            <li><a href='*'>Художники</a></li>
-                            <li><a href='*'>О проекте</a></li>
-                            <li><a href='*'>Блог</a></li>
-                            <li><a href='*'>Создать аукцион</a></li>
-                            {token ? <li><div className={styles.btn}><button onClick={handleLogOut}><Link to='/auth'>Выйти</Link></button></div></li>
-                                : <li><div className={styles.btn}><button><Link to='/auth'>Войти</Link></button></div></li>}
+                            <li><Link to='/auction'>Аукционы</Link></li>
+                            <li><Link to='*'>Художники</Link></li>
+                            <li><Link to='*'>О проекте</Link></li>
+                            <li><Link to='*'>Блог</Link></li>
+                            <li><Link to='/add/slot'>Создать аукцион</Link></li>
+                            {token ? <li><div className={styles.btn}><button onClick={handleLogOut}><Link to='/'>Выйти</Link></button></div></li>
+                            : <li><div className={styles.btn}><button><Link to='/auth'>Войти</Link></button></div></li>}
                         </ul>
                     </nav>
                 </div>

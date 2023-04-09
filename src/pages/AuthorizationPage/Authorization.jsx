@@ -10,6 +10,7 @@ const Authorization = () => {
     const dispatch = useDispatch()
     const [login, setLogin] = useState('')
     const [password, setPassword] = useState('')
+    const errors = useSelector(state => state.authSlice.error)
 
     const handleAuthorization = (e) => {
         e.preventDefault()
@@ -36,6 +37,7 @@ const Authorization = () => {
                         </div>
                         <div className={styles.authorization_wrapper}>
                             <div className={styles.authorization}>
+                                {errors ? <div className={styles.errorAuth}>{errors}</div> : ''}
                                 <form onSubmit={handleAuthorization}>
                                     <div className={styles.inputs_wrapper}>
                                         <input
