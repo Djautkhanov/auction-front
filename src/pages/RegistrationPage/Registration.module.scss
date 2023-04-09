@@ -1,7 +1,8 @@
 .background_wrapper {
+    margin: auto;
     width: 1200px;
     height: auto;
-    box-shadow: 29px 23px 32px 1px rgba(0, 0, 0, 0.5);
+    box-shadow: 29px 23px 32px 1px rgba(0, 0, 0, 0.3);
 }
 
 .background {
@@ -10,7 +11,7 @@
     height: 450px;
     background-size: 100%;
     background-repeat: no-repeat;
-    background-image: url('/assets/neven-krcmarek-7m35uR4mjV0-unsplash (1).jpg');
+    background-image: url('/assets/main.jpg');
     display: flex;
     flex-direction: row-reverse; 
 }
