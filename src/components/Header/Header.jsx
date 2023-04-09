@@ -19,11 +19,11 @@ export const Header = () => {
                     </div>
                     <nav className={styles.menu}>
                         <ul>
-                            <li><a href='/auction'>Аукционы</a></li>
-                            <li><a href='*'>Художники</a></li>
-                            <li><a href='*'>О проекте</a></li>
-                            <li><a href='*'>Блог</a></li>
-                            <li><a href='*'>Создать аукцион</a></li>
+                            <li><Link to='/auction'>Аукционы</Link></li>
+                            <li><Link to='*'>Художники</Link></li>
+                            <li><Link to='*'>О проекте</Link></li>
+                            <li><Link to='*'>Блог</Link></li>
+                            <li><Link to='/add/slot'>Создать аукцион</Link></li>
                             {token ? <li><button><Link to='/auth'>Выйти</Link></button></li>
                             : <li><button><Link to='/auth'>Войти</Link></button></li>}
                         </ul>

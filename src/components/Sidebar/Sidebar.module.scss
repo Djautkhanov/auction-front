@@ -1,57 +1,52 @@
-h1{
+.sidebar {
+  h1 {
     font-weight: normal;
     font-size: 20px;
-    margin-left: 100px;
-    /* margin-top: 80px; */
+    // margin-left: 100px;
+    // margin-top: 80px;
     border-bottom: 2px solid black;
     width: 280px;
     font-weight: bold;
-}
+  }
 
-.list li{
-    margin-left: 60px;
+  .list li {
+    // margin-left: 60px;
     font-size: 20px;
     width: 200px;
+  }
 
-}
-
-
-
-.list  a{
+  .list a {
     list-style-type: none;
-    text-decoration: none;    
+    text-decoration: none;
     color: black;
-}
+  }
 
-
-h2{
+  h2 {
     font-weight: normal;
     font-size: 20px;
-    margin-left: 100px;
+    // margin-left: 100px;
     margin-top: 80px;
     border-bottom: 2px solid black;
     width: 280px;
     font-weight: bold;
-}
+  }
 
-   .checkbox{
+  .checkbox {
     width: 20px;
-    height: 20px;  
-    margin-left: 100px;  
-    color: black; 
-}
+    height: 20px;
+    // margin-left: 100px;
+    color: black;
+  }
 
-.checkbox input{
+  .checkbox input {
     margin-top: 10px;
-}
+  }
 
-.input{
+  .input {
     font-size: 20px;
-}
+  }
 
-   
-
- h3{
+  h3 {
     font-weight: normal;
     font-size: 20px;
     margin-top: 80px;
@@ -59,52 +54,33 @@ h2{
     width: 280px;
     font-weight: bold;
     text-align: left;
-}
+  }
 
-
-.range{
+  .range {
     width: 250px;
     color: white;
-}
+  }
 
-input{
+  input {
     width: 130px;
     height: 30px;
     margin: 5px;
     outline: none;
-}
-
-
-.price{
-    margin-left: 100px;
-}
-
-
-.slidecontainer{
-    width: 230px;
-    margin-left: 12px;
-    margin-top: 5px; 
-    
-}
-
-  .list li:hover{
-    text-decoration: underline;
-    text-decoration-thickness: 1.5px;
-    text-underline-offset: 5px;    
-   
   }
 
+  .price {
+    // margin-left: 100px;
+  }
 
+  .slidecontainer {
+    width: 230px;
+    margin-left: 12px;
+    margin-top: 5px;
+  }
 
-
-
-
-
-
-
-
-
-
-
-
-
+  .list li:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 5px;
+  }
+}

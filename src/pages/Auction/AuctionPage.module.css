@@ -9,16 +9,21 @@
 }
 
 .btnDiv {
+  width: 910px;
   display: flex;
-  justify-content: center;
-  margin-top: 20px;
+  justify-content: space-around;
+  align-items: center;
+  /* margin-top: 20px; */
 }
 
 .btnInput {
   height: 30px;
   width: 440px;
   padding: 5px;
-  margin-left: 100px;
+  /* margin-left: 100px; */
+}
+.aucMain{
+margin-top: 30px;
 }
 
 button {
@@ -27,7 +32,10 @@ button {
   border: none;
   color: white;
   height: 44px;
-  margin-top: 5px;
+  /* margin-top: 5px; */
+}
+.aucMain{
+  display: flex;
 }
 
 .imgDiv {
@@ -39,7 +47,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 70px;
+  /* margin-left: 70px; */
 }
 
 .wrapper {
@@ -51,6 +59,4 @@ button {
 
 .lot {
   opacity: 0.5;
-  margin-top: 15px;
-  margin-left: 120px;
 }
