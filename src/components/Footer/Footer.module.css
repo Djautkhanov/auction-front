@@ -1,9 +1,9 @@
-p {
-  font-size: 13px;
-  margin-left: 110px;
+p{
+    font-size: 18px;
+    margin: 5px 0;
 }
 
-span {
+.footer span {
   font-size: 25px;
   margin-left: 110px;
   font-family: "Times New Roman", serif;
@@ -13,8 +13,13 @@ span {
   margin-top: 50px;
 }
 
-.footer_block {
-  display: flex;
+
+
+
+.footer_block{
+    display: flex;
+    gap: 100px;
+    margin-left: 110px;
 }
 
 .footerpng img {
@@ -23,6 +28,17 @@ span {
   width: 15px;
 }
 
-.footerpng {
-  margin-left: 105px;
+
+
+
+.footer_info{
+    padding: 0 30px;
+    border-left: 1px solid gray;
+  
 }
+
+.footer_info:first-child {
+    border: none;
+    padding: 0;
+}
+
