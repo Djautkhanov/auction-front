@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./AddSlot.module.css";
 import { addItems, getItems } from "../../features/itemSlice";
+import Header from "../../components/Header/Header";
 
 const AddSlot = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const [startingPrice, setstartingPrice] = useState("");
   const [blitzPrice, setblitzPrice] = useState("");
   const [previewUrls, setPreviewUrls] = useState();
@@ -12,76 +13,89 @@ const AddSlot = () => {
   const [description, setdescription] = useState("");
   const [category, setcategory] = useState("");
   const [done, setDone] = useState("");
-  const [image, setimage] = useState(null)
-  // const [item, setItem] = useState({
-  //   itemName: "",
-  //   description: "",
-  //   image: null,
-  //   category: "",
-  // });
+  const [image, setimage] = useState(null);
   const [errors, setErrors] = useState({});
-  
+
+  const token = `Bearer ${localStorage.getItem("token")}`;
+  const err = useSelector(state => state.itemSlice.error)
+
   useEffect(() => {
-dispatch(getItems())
-  }, [dispatch])
+    dispatch(getItems());
+  }, [dispatch]);
+console.log("zdec",err);
+  // const validateForm = () => {
+  //   let formIsValid = true;
+  //   const errors = {};
 
-  const validateForm = () => {
-    let formIsValid = true;
-    const errors = {};
+  //   if (!category) {
+  //     errors.category = "Выберите категорию";
+  //     formIsValid = false;
+  //   }
 
-    if (!category) {
-      errors.category = "Выберите категорию";
-      formIsValid = false; 
-    }
+  //   if (!image) {
+  //     errors.image = "Загрузите изображение";
+  //     formIsValid = false;
+  //   }
 
-    if (!image) {
-      errors.image = "Загрузите изображение";
-      formIsValid = false;
-    }
+  //   if (!description) {
+  //     errors.description = "Введите описание";
+  //     formIsValid = false;
+  //   }
 
-    if (!description) {
-      errors.description = "Введите описание";
-      formIsValid = false;
-    }
+  //   if (!itemName) {
+  //     errors.itemName = "Введите название работы";
+  //     formIsValid = false;
+  //   }
 
-    if (!itemName) {
-      errors.itemName = "Введите название работы";
-      formIsValid = false;
-    }
+  //   if (!startingPrice || startingPrice < 1) {
+  //     errors.startingPrice = "Введите начальную цену";
+  //     formIsValid = false;
+  //   }
 
-    if (!startingPrice || startingPrice < 1) {
-      errors.startingPrice = "Введите начальную цену";
-      formIsValid = false;
-    }
+  //   if (!blitzPrice || blitzPrice < 1) {
+  //     errors.blitzPrice = "Введите блиц-цену";
+  //     formIsValid = false;
+  //   }
 
-    if (!blitzPrice || blitzPrice < 1) {
-      errors.blitzPrice = "Введите блиц-цену";
-      formIsValid = false;
-    }
-
-    setErrors(errors);
-    return formIsValid;
-  };
+  //   setErrors(errors);
+  //   return formIsValid;
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (validateForm()) {
-      dispatch(addItems({itemName ,description, startingPrice, blitzPrice, category, image}))
+  
+      dispatch(
+        addItems({
+          itemName,
+          description,
+          startingPrice,
+          blitzPrice,
+          category,
+          image,
+          token,
+        })
+      );
       setblitzPrice("");
       setPreviewUrls(null);
       setstartingPrice("");
-      setDone("Лот добавлен");
-    }
+      if(err !== null){
+        setDone("Лот добавлен");
+      }
+      setimage(null);
+      setcategory("");
+      setdescription("");
+      setitemName('')
+    
   };
 
   const handleChangeItemName = (e) => {
-     setitemName(e.target.value);
+    setitemName(e.target.value);
   };
   const handleChangedescription = (e) => {
     setdescription(e.target.value);
   };
-  const handleChangecategory= (e) => {
+  const handleChangecategory = (e) => {
     setcategory(e.target.value);
   };
 
@@ -95,22 +109,20 @@ dispatch(getItems())
       setblitzPrice(e.target.value);
     }
   };
-console.log();
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
-    const imageUrls = files.map((file) => URL.createObjectURL(file));
     setimage(files[0]);
-    setPreviewUrls(imageUrls);
   };
 
   return (
     <div className={styles.main1}>
+      <Header />
       <div className={styles.main}>
         <div className={styles.imgMain}>
           {" "}
           <h1>РАЗМЕСТИТЬ ЛОТ</h1>{" "}
         </div>
-        <form onSubmit={handleSubmit} className={styles.form}>
+        <form onSubmit={handleSubmit} className={styles.form} required>
           {errors.category && (
             <span className={styles.error}>{errors.category}</span>
           )}
@@ -121,9 +133,10 @@ console.log();
               className={styles.category}
               onChange={handleChangecategory}
               value={category}
+              required
             >
               {" "}
-              <option value="">(не выбрано)</option>          
+              <option value="">(не выбрано)</option>
               <option value="Живопись">Живопись</option>
               <option value="Скульптура">Скульптура</option>
               <option value="Рисунок">Рисунок</option>
@@ -142,17 +155,13 @@ console.log();
                 type="file"
                 accept=".jpg, .jpeg, .png, .gif"
                 onChange={handleImageChange}
+                required
               />
               <div className={styles.addImage}>
                 {previewUrls
                   ? previewUrls.map((url) => (
-                        <img
-                          src={url}
-                          alt=""
-                          className={styles.imgInpt}
-                        />
-
-                        ))
+                      <img src={url} alt="" className={styles.imgInpt} />
+                    ))
                   : ""}
               </div>
             </div>
@@ -167,6 +176,7 @@ console.log();
               name="description"
               value={description}
               onChange={handleChangedescription}
+              required
             ></textarea>
           </div>
           {errors.itemName && (
@@ -181,6 +191,7 @@ console.log();
               name="itemName"
               value={itemName}
               onChange={handleChangeItemName}
+              required
             />
           </div>
           {errors.startingPrice && (
@@ -195,6 +206,7 @@ console.log();
               name="startingPrice"
               value={startingPrice}
               onChange={handleStartingPrice}
+              required
             />
           </div>
           {errors.blitzPrice && (
@@ -209,9 +221,11 @@ console.log();
               name="blitzPrice"
               value={blitzPrice}
               onChange={handleBlitzPrice}
+              required
             />
           </div>
-          {done && <span className={styles.done}>{done}</span>}     
+          {done && <span className={styles.done}>{done}</span>}
+          {err && <span className={styles.error}>{err}</span>}
           <button type="submit" className={styles.btn}>
             Добавить
           </button>
@@ -221,4 +235,4 @@ console.log();
   );
 };
 
-export default AddSlot       
+export default AddSlot;

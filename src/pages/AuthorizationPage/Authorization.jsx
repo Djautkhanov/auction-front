@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { authorization } from '../../features/authSlice'
 import styles from './Authorization.module.scss'
 // import Header from '/Users/usmantasht/Desktop/auction-front/src/components/Header/Header.jsx'
 import Header from '../../components/Header/Header'
-
 
 const Authorization = () => {
 
@@ -16,8 +15,9 @@ const Authorization = () => {
     const handleAuthorization = (e) => {
         e.preventDefault()
         dispatch(authorization({ login, password }))
-        setLogin('')
-        setPassword('')
+        // setLogin('')
+        // setPassword('')
+
     }
 
     return (

@@ -41,18 +41,32 @@ export const itemsSlice = createSlice({
   initialState,
   reduser: {},
   extraReducers: (builder) => {
-    builder.addCase(getItems.pending, (state, action) => {
-      state.loading = true;
-    })
-    .addCase(getItems.rejected, (state, action) => {
-        state.loading = false; 
-        state.error = action.payload;
-    })
-    .addCase(getItems.fulfilled, (state, action) => {
+    builder
+      .addCase(getItems.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(getItems.rejected, (state, action) => {
         state.loading = false;
-        state.error = null
+        state.error = action.payload;
+      })
+      .addCase(getItems.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = null;
         state.items = action.payload;
-    })
+      })
+      .addCase(addItems.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(addItems.rejected, (state, action) => {
+        console.log(action);
+        state.loading = false;
+        state.error = action.payload;
+      })
+      .addCase(addItems.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = null;
+        state.items = state.items.push(action.payload);
+      });
   },
 });
 
