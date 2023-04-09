@@ -211,7 +211,7 @@ console.log();
               onChange={handleBlitzPrice}
             />
           </div>
-          {done && <span className={styles.done}>{done}</span>}
+          {done && <span className={styles.done}>{done}</span>}     
           <button type="submit" className={styles.btn}>
             Добавить
           </button>
@@ -221,4 +221,4 @@ console.log();
   );
 };
 
-export default AddSlot
+export default AddSlot       

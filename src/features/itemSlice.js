@@ -6,7 +6,7 @@ const initialState = {
   error: null,
 };
 
-export const getItems = createAsyncThunk("getItems/fetch", async (_, thunkAPI) => {
+export const getItems = createAsyncThunk("getItems/fetch", async (_, thunkAPI) => {       
   try {
     const items = await fetch("http://localhost:4000/items");
     return await items.json();
@@ -14,7 +14,7 @@ export const getItems = createAsyncThunk("getItems/fetch", async (_, thunkAPI) =
     return thunkAPI.rejectWithValue(error.message);
   }
 });
-export const addItems = createAsyncThunk("addItems/fetch", async (data, thunkAPI) => {
+export const addItems = createAsyncThunk("addItems/fetch", async (data, thunkAPI) => {  
    try {
     const formData = new FormData();
     
@@ -26,13 +26,13 @@ export const addItems = createAsyncThunk("addItems/fetch", async (data, thunkAPI
     formData.append("category" , data.category)
     console.log(data.image);    
 
-    const item = await fetch("http://localhost:4000/items", {
+    const item = await fetch("http://localhost:4000/items", {    
         method: "POST",
         body: formData
     })
     return await item.json()
    } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
+    return thunkAPI.rejectWithValue(error.message);        
    }
 })
 

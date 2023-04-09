@@ -16,7 +16,7 @@ export const Header = () => {
                     </div>
                     <nav className={styles.menu}>
                         <ul>
-                            <li><a href='*'>Аукционы</a></li>
+                            <li><a href='/auctionPage'>Аукционы</a></li>
                             <li><a href='*'>Художники</a></li>
                             <li><a href='*'>О проекте</a></li>
                             <li><a href='*'>Блог</a></li>
