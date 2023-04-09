@@ -42,14 +42,14 @@ export const authorization = createAsyncThunk(
     async ({ login, password }, thunkAPI) => {
         
         try {
-            const res = await fetch('http://localhost:4000/auth',{
+            const res = await fetch('http://localhost:4000/login',{
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({ login, password })
             })
-            const token = res.json()
+            const token = await res.json()
 
             if (token.error) {
                 return thunkAPI.rejectWithValue(token.error)

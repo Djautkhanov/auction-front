@@ -16,11 +16,11 @@ export const Header = () => {
                     </div>
                     <nav className={styles.menu}>
                         <ul>
-                            <li><a href='*'>Аукционы</a></li>
+                            <li><a href='/auction'>Аукционы</a></li>
                             <li><a href='*'>Художники</a></li>
                             <li><a href='*'>О проекте</a></li>
                             <li><a href='*'>Блог</a></li>
-                            <li><a href='*'>Создать аукцион</a></li>
+                            <li><a href='add/slot'>Создать аукцион</a></li>
                             <li><Link to='/auth'>Войти</Link></li>
                         </ul>
                     </nav>

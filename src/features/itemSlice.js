@@ -6,53 +6,78 @@ const initialState = {
   error: null,
 };
 
-export const getItems = createAsyncThunk("getItems/fetch", async (_, thunkAPI) => {
-  try {
-    const items = await fetch("http://localhost:4000/items");
-    return await items.json();
-  } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
+export const getItems = createAsyncThunk(
+  "getItems/fetch",
+  async (_, thunkAPI) => {
+    try {
+      const items = await fetch("http://localhost:4000/items");
+      return await items.json();
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
   }
-});
-export const addItems = createAsyncThunk("addItems/fetch", async (data, thunkAPI) => {
-   try {
-    const formData = new FormData();
-    
-    formData.append("img" , data.image)
-    formData.append("name" , data.itemName)
-    formData.append("description", data.description)
-    formData.append("starting_price", data.startingPrice)  
-    formData.append("blitzPrice" ,data.blitzPrice)
-    formData.append("category" , data.category)
-    console.log(data.image);    
+);
+export const addItems = createAsyncThunk(
+  "addItems/fetch",
+  async (data, thunkAPI) => {
+    try {
+      const formData = new FormData();
 
-    const item = await fetch("http://localhost:4000/items", {
+      formData.append("token", data.token);
+      formData.append("img", data.image);
+      formData.append("name", data.itemName);
+      formData.append("description", data.description);
+      formData.append("starting_price", data.startingPrice);
+      formData.append("blitzPrice", data.blitzPrice);
+      formData.append("category", data.category);
+
+      const item = await fetch("http://localhost:4000/items", {
         method: "POST",
-        body: formData
-    })
-    return await item.json()
-   } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
-   }
-})
+        body: formData,
+      });
+      const response = await item.json()
+      if (response.error) {
+        return thunkAPI.rejectWithValue(response.error);
+
+      }
+      return  response
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 
 export const itemsSlice = createSlice({
   name: "items",
   initialState,
   reduser: {},
   extraReducers: (builder) => {
-    builder.addCase(getItems.pending, (state, action) => {
-      state.loading = true;
-    })
-    .addCase(getItems.rejected, (state, action) => {
-        state.loading = false; 
-        state.error = action.payload;
-    })
-    .addCase(getItems.fulfilled, (state, action) => {
+    builder
+      .addCase(getItems.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(getItems.rejected, (state, action) => {
         state.loading = false;
-        state.error = null
+        state.error = action.payload;
+      })
+      .addCase(getItems.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = null;
         state.items = action.payload;
-    })
+      })
+      .addCase(addItems.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(addItems.rejected, (state, action) => {
+        console.log(action);
+        state.loading = false;
+        state.error = action.payload;
+      })
+      .addCase(addItems.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = null;
+        state.items = state.items.push(action.payload);
+      });
   },
 });
 
