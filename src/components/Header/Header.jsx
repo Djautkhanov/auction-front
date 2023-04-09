@@ -2,8 +2,11 @@ import React from 'react'
 import styles from '../Header/Header.module.scss'
 import logo_img from '../../assets/logo.png'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 export const Header = () => {
+
+    const token = useSelector((state) => state.authSlice.token)
     return (
         
         <div className={styles.header_wrapper}>
@@ -20,8 +23,9 @@ export const Header = () => {
                             <li><a href='*'>Художники</a></li>
                             <li><a href='*'>О проекте</a></li>
                             <li><a href='*'>Блог</a></li>
-                            <li><a href='add/slot'>Создать аукцион</a></li>
-                            <li><Link to='/auth'>Войти</Link></li>
+                            <li><a href='*'>Создать аукцион</a></li>
+                            {token ? <li><button><Link to='/auth'>Выйти</Link></button></li>
+                            : <li><button><Link to='/auth'>Войти</Link></button></li>}
                         </ul>
                     </nav>
                 </div>

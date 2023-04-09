@@ -12,7 +12,7 @@ export const registration = createAsyncThunk(
     async ({ firstName, lastName, login, password }, thunkAPI) => {
 
         try {
-            const res = await fetch('http://localhost:4000/auth',{
+            const res = await fetch('http://localhost:4000/registration',{
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
@@ -32,7 +32,7 @@ export const registration = createAsyncThunk(
             return json
 
         } catch(e) {
-            thunkAPI.rejectWithValue(e)
+            return thunkAPI.rejectWithValue(e)
     }
 
 })
@@ -42,12 +42,15 @@ export const authorization = createAsyncThunk(
     async ({ login, password }, thunkAPI) => {
         
         try {
-            const res = await fetch('http://localhost:4000/login',{
+            const res = await fetch('http://localhost:4000/auth', {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ login, password })
+                body: JSON.stringify({ 
+                    login, 
+                    password 
+                })
             })
             const token = await res.json()
 
@@ -59,7 +62,7 @@ export const authorization = createAsyncThunk(
             return token 
 
         } catch(e) {
-            thunkAPI.rejectWithValue(e)
+            return thunkAPI.rejectWithValue(e.message)
         }
     })
 
@@ -96,7 +99,6 @@ const authSlice = createSlice({
             state.signingIn = false
             state.error = null
             state.token = action.payload
-            
         })
     }
 })
