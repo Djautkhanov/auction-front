@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import styles from "./AuctionPage.module.css";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Footer from "../../components/Footer/Footer";
@@ -9,13 +9,15 @@ import { getItems } from "../../features/itemSlice";
 const AuctionPage = () => {
   const [serch, setSerch] = useState("");
   const dispatch = useDispatch();
-  const items = useSelector((state) => state.itemSlice.items).filter((item) => {
-    return item.name.toLowerCase().includes(serch.toLocaleLowerCase());          
-  });
+  const items = useSelector((state) => state.itemSlice.items)
+  console.log(items);
+  // .filter((item) => {
+  //   return item.name.toLowerCase().includes(serch.toLocaleLowerCase());          
+  // });
 
-  useEffect(() => {
-    dispatch(getItems());
-  }, []);
+useEffect(() => {
+  dispatch(getItems())
+}, [dispatch])
 
   return (
     <>
@@ -37,6 +39,8 @@ const AuctionPage = () => {
                   className={styles.btnInput}
                   type="text"
                   placeholder="Введите ключевые слова"
+                  onChange={(e) => setSerch(e.target.value)}
+                  value={serch}
                 ></input>
                 <button>НАЙТИ</button>
                 </div>

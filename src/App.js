@@ -35,11 +35,11 @@ function App() {
         <Route path= '/add/slot' element={<AddSlot/>}/>
       </Routes>
     </div>
-    // <>
-    // //   <Header />
-    // //   <UserPage />
-    // //   <Footer />
-    // </>
+      // <>
+      //    <Header />
+      //    <UserPage />
+      //    <Footer />
+      // </>
   );
 }
 

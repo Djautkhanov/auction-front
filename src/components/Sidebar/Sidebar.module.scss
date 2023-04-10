@@ -5,7 +5,6 @@
 h1{
     font-weight: normal;
     font-size: 20px;
-    margin-left: 100px;
     margin-top: 80px;
     border-bottom: 2px solid black;
     width: 280px;
@@ -13,7 +12,6 @@ h1{
 }
 
 .list li{
-    margin-left: 60px;
     font-size: 20px;
     width: 200px;
 
@@ -30,7 +28,6 @@ h1{
 h2{
     font-weight: normal;
     font-size: 20px;
-    margin-left: 100px;
     margin-top: 80px;
     border-bottom: 2px solid black;
     width: 280px;
@@ -40,7 +37,6 @@ h2{
    .checkbox{
     width: 20px;
     height: 20px;  
-    margin-left: 100px;  
     color: black; 
 }
 
@@ -66,26 +62,21 @@ h2{
 
 
 .range{
-    width: 250px;
+    width: 25   0px;
     color: white;
 }
 
 input{
-    width: 130px;
+    width: 120px;
     height: 30px;
     margin: 5px;
     outline: none;
 }
 
 
-.price{
-    margin-left: 100px;
-}
-
 
 .slidecontainer{
     width: 230px;
-    margin-left: 12px;
     margin-top: 5px; 
     
 }

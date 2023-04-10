@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Sidebar.module.scss";
 import { NavLink } from "react-router-dom";
-// import { Slider } from "@mui/material";
+import { Slider } from "@mui/material";
 
 const Sidebar = () => {
   const [minPrice, setMinPrice] = React.useState("1090");
@@ -56,7 +56,7 @@ const Sidebar = () => {
                 />
               </div>
               <div className={styles.slidecontainer}>
-                {/* <Slider */}
+                <Slider
                   getAriaLabel={() => "Temperature range"}
                   min={1000}
                   max={100000}
@@ -65,7 +65,7 @@ const Sidebar = () => {
                   valueLabelDisplay="auto"
                   style={{ color: 'gainsboro'}}
                 
-                // {/* /> */}
+                />
               </div>
             </div>
           </div>
