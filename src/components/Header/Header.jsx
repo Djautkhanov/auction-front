@@ -29,7 +29,7 @@ export const Header = () => {
                             <li><Link to='*'>Художники</Link></li>
                             <li><Link to='*'>О проекте</Link></li>
                             <li><Link to='*'>Блог</Link></li>
-                            <li><Link to='/add/slot'>Создать аукцион</Link></li>
+                            <li><Link to='/own/page'>Мои аукционы</Link></li>
                             {token ? <li><div className={styles.btn}><button onClick={handleLogOut}><Link to='/'>Выйти</Link></button></div></li>
                             : <li><div className={styles.btn}><button><Link to='/auth'>Войти</Link></button></div></li>}
                         </ul>

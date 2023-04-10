@@ -1,6 +1,67 @@
 .userImg{
   background-image: url("../../assets/neven.jpg");
-  width: 1400px;
+  width: 1200px;
   height: 200px;
   background-size: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.UserName h1 {
+  margin: 20px 20px 0 0 ;
+  font-size: 58px;
+}
+.UserName{
+  display: flex;
+  border-bottom: 4px solid black  ;
+}
+.userinfo{
+  width: 300px;
+  /* background-color: blanchedalmond; */
+  padding: 20px 0 0 20px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 470px;
+  font-size: 16px;
+  border-right: 2px solid black;
+}
+.userImage{
+  width: 200px;
+  height: 230px;
+  background-color: gray;
+  border-radius: 30%;
+}
+.userMainImg{
+  margin-bottom: 90px;
+  width: 1200px;
+}
+.User{
+  display: flex;
+  font-size: 25px;
+  width: 71%;
+  justify-content: space-between;
+}
+.userMain{
+  margin: 20px 0;
+}
+.userBtnAdd{
+      margin: 30px 0 0 35px;
+      width: 212px;
+      height: 39px;
+      background-color: dimgrey;
+      color: white;
+      border: none;
+      font-size: 19px;
+      cursor: pointer;
+  }
+  .userBtnAdd:hover{
+    margin: 30px 0 0 35px;
+    width: 212px;
+    height: 39px;
+    background-color: white;
+    color: dimgrey;
+    border: 2px solid dimgrey;
+    font-size: 19px;
+    cursor: pointer;
 }

@@ -30,6 +30,7 @@ export const addItems = createAsyncThunk(
       formData.append("starting_price", data.startingPrice);
       formData.append("blitzPrice", data.blitzPrice);
       formData.append("category", data.category);
+      formData.append("token", data.token);
       console.log(data.image);
 
       const item = await fetch("http://localhost:4000/items", {
