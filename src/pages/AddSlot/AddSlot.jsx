@@ -9,45 +9,44 @@ const AddSlot = () => {
   const dispatch = useDispatch();
   const [startingPrice, setstartingPrice] = useState("");
   const [blitzPrice, setblitzPrice] = useState("");
-  const [previewUrls, setPreviewUrls] = useState();
   const [itemName, setitemName] = useState("");
   const [description, setdescription] = useState("");
   const [category, setcategory] = useState("");
   const [done, setDone] = useState("");
   const [image, setimage] = useState(null);
+  const [imageURL, setimageUrl] = useState(null);
 
   const token = `Bearer ${localStorage.getItem("token")}`;
-  const err = useSelector(state => state.itemSlice.error)
+  const err = useSelector((state) => state.itemSlice.error);
+  console.log(token);
 
   useEffect(() => {
     dispatch(getItems());
   }, [dispatch]);
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
-      dispatch(
-        addItems({
-          itemName,
-          description,
-          startingPrice,
-          blitzPrice,
-          category,
-          image,
-          token,
-        })
-      );
-      setblitzPrice("");
-      setPreviewUrls(null);
-      setstartingPrice("");
-      if(err !== null){
-        setDone("Лот добавлен");
-      }
-      setimage(null);
-      setcategory("");
-      setdescription("");
-      setitemName('')
-    
+    dispatch(
+      addItems({
+        itemName,
+        description,
+        startingPrice,
+        blitzPrice,
+        category,
+        image,
+        token,
+      })
+    );
+    setblitzPrice("");
+    setstartingPrice("");
+    if (err !== null) {
+      setDone("Лот добавлен");
+    }
+    setimage(null);
+    setimageUrl(null);
+    setcategory("");
+    setdescription("");
+    setitemName("");
   };
 
   const handleChangeItemName = (e) => {
@@ -70,9 +69,15 @@ const AddSlot = () => {
       setblitzPrice(e.target.value);
     }
   };
-  const handleImageChange = (e) => {
-    const files = Array.from(e.target.files);
+  const handleImageChange = (event) => {
+    const files = Array.from(event.target.files);
+    const reader = new FileReader();
     setimage(files[0]);
+    reader.onload = (e) => {
+      setimageUrl(e.target.result);
+    };
+
+    reader.readAsDataURL(files[0]);
   };
 
   return (
@@ -107,7 +112,6 @@ const AddSlot = () => {
             <div className={styles.addImageBlok}>
               <input
                 name="imageInput"
-                multiple
                 className={styles.image}
                 type="file"
                 accept=".jpg, .jpeg, .png, .gif"
@@ -115,11 +119,7 @@ const AddSlot = () => {
                 required
               />
               <div className={styles.addImage}>
-                {previewUrls
-                  ? previewUrls.map((url) => (
-                      <img src={url} alt="" className={styles.imgInpt} />
-                    ))
-                  : ""}
+                {imageURL && <img src={imageURL} alt="" />}
               </div>
             </div>
           </div>
@@ -176,7 +176,7 @@ const AddSlot = () => {
           </button>
         </form>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

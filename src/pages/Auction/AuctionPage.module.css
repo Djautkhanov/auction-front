@@ -25,7 +25,7 @@
 .aucMain{
 margin-top: 30px;
 }
-
+/* 
 button {
   background-color: dimgrey;
   width: 100px;
@@ -33,7 +33,7 @@ button {
   color: white;
   height: 44px;
   /* margin-top: 5px; */
-}
+ 
 .aucMain{
   display: flex;
 }
