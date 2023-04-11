@@ -6,6 +6,7 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import { Link, useNavigate } from "react-router-dom";
 import Loader from "../../components/Loader/Loader";
+import { getItems } from "../../features/itemSlice";
 
 const UserPage = () => {
   const navigate = useNavigate();
@@ -16,6 +17,7 @@ const UserPage = () => {
   useEffect(() => {
     dispatch(getUserBytoken(token));
     dispatch(getUsers());
+    dispatch(getItems())
     if (!token) {
       navigate("/auth");
     }
@@ -27,7 +29,8 @@ const UserPage = () => {
     state.authSlice.user.find((user) => user._id === id)
   );
   console.log(user);
-  const items = useSelector((state) => state.itemSlice.items.filter((item) => item))
+  const items = useSelector((state) => state.itemSlice.items.filter((item) => item.user_id === user._id))
+  console.log(items);
 
   if(!user){
     return (
@@ -53,7 +56,7 @@ const UserPage = () => {
         </div>
         <div className={styles.userMain}>
           <div className={styles.userinfo}>
-            <img src={`http://localhost:4000/${user.photo}`} alt="Avatar" className={styles.userImage} />
+            <img src={`http://localhost:4000/uploads/${user.photo}`} alt="Avatar" className={styles.userImage} />
             <div className={styles.User}>
               <span>{user.firstName}</span> <span>{user.lastName}</span>
             </div>
@@ -64,6 +67,22 @@ const UserPage = () => {
             <Link to="/add/slot">
               <button className={styles.userBtnAdd}>Разместить лот</button>
             </Link>
+          </div>
+          <div className={styles.userItems}>
+            {items ? items.map((item) => {
+              return (
+                <div className={styles.ItemCard}>
+                <img src={`http://localhost:4000/uploads/${item.img}`} alt=""  className={styles.ItemImage}/>
+                <div className={styles.itemName}>
+                {item.name}
+                </div>
+                <Link to={`/item/add/${item._id}`}>
+                  <button disabled={item.status === 'На аукционе' || 'Продано' ? false: true } className={styles.itemBtn}>
+                    {item.status} </button>
+                </Link>
+                </div>
+              )
+            }) : ""}
           </div>
         </div>
       </div>

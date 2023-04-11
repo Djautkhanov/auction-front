@@ -19,7 +19,7 @@
   display: block;
 }
 .userinfo{
-  width: 300px;
+  width: 540px;
   padding: 20px 0 0 20px; 
   display: flex;
   flex-direction: column;
@@ -45,6 +45,7 @@
 }
 .userMain{
   margin: 20px 0;
+  display: flex;
 }
 .userBtnAdd{
       margin: 30px 0 0 35px;
@@ -65,4 +66,37 @@
     border: 2px solid dimgrey;
     font-size: 19px;
     cursor: pointer;
+}
+.userItems{
+  display: flex;
+  flex-wrap: wrap;
+}
+.ItemImage{
+  width: 250px;
+  height: 300px;
+}
+.ItemCard{
+  margin-left: 26.5px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.itemBtn{
+  width: 230px;
+  height: 39px;
+  background-color: dimgrey;
+  color: white;
+  border: none;
+  font-size: 17px;
+  cursor: pointer;
+}
+.itemBtn:hover{
+width: 230px;
+height: 39px;
+background-color: white;
+color: dimgrey;
+border: 2px solid dimgrey;
+font-size: 17px;
+cursor: pointer;
 }
