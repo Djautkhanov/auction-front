@@ -1,4 +1,4 @@
-import React, {  useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./AuctionPage.module.css";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Footer from "../../components/Footer/Footer";
@@ -9,15 +9,32 @@ import { getItems } from "../../features/itemSlice";
 const AuctionPage = () => {
   const [serch, setSerch] = useState("");
   const dispatch = useDispatch();
-  const items = useSelector((state) => state.itemSlice.items)
-  console.log(items);
-  // .filter((item) => {
-  //   return item.name.toLowerCase().includes(serch.toLocaleLowerCase());          
-  // });
 
-useEffect(() => {
-  dispatch(getItems())
-}, [dispatch])
+  const [minPrice, setMinPrice] = React.useState("1090");
+  const [maxPrice, setMaxPrice] = React.useState("100900");
+
+  const price = useSelector((state) => state.itemSlice.items);
+
+  const filteredItems = price
+    .filter((item) => {
+      if (
+        item.starting_price >= Number(minPrice) &&
+        item.starting_price <= Number(maxPrice)
+      ) {
+        return item;
+      }
+    })
+    .filter((item) => {
+      return item.name.toLowerCase().includes(serch.toLocaleLowerCase());
+    });
+
+  useEffect(() => {
+    dispatch(getItems());
+  }, [dispatch]);
+
+  if (!price.length) {
+    return "Loading";
+  }
 
   return (
     <>
@@ -29,36 +46,43 @@ useEffect(() => {
           </div>
           <div className={styles.aucMain}>
             <div className={styles.side_bar}>
-              <Sidebar />
+              <Sidebar
+                minPrice={minPrice}
+                maxPrice={maxPrice}
+                setMinPrice={setMinPrice}
+                setMaxPrice={setMaxPrice}
+              />
             </div>
             <div className={styles.auctMap}>
               <div className={styles.btnDiv}>
-                <div className={styles.lot}>Нашли 10 лотов</div>
+                <div className={styles.lot}>
+                  Нашли {filteredItems.length} лотов
+                </div>
                 <div className={styles.search}>
-                <input
-                  className={styles.btnInput}
-                  type="text"
-                  placeholder="Введите ключевые слова"
-                  onChange={(e) => setSerch(e.target.value)}
-                  value={serch}
-                ></input>
-                <button>НАЙТИ</button>
+                  <input
+                    className={styles.btnInput}
+                    type="text"
+                    placeholder="Введите ключевые слова"
+                    onChange={(e) => setSerch(e.target.value)}
+                    value={serch}
+                  ></input>
+                  <button>НАЙТИ</button>
                 </div>
               </div>
               <div className={styles.auctCart}>
-              {items.map((elems) => {
-          return (
-            <div className={styles.items_img}  key={elems.id}>
-              <div className={styles.images}>
-                <img src={`http://localhost:4000/${elems.img}`} /> 
-              </div>
-              <div>{elems.name}</div>
-              <div>{elems.description}</div>
-              <div>{elems.starting_price}</div>   
-                 
-            </div>
-          );
-        })}      
+                {filteredItems.map((elems) => {
+                  return (
+                    <div className={styles.items_img} key={elems.id}>
+                      <div className={styles.images}>
+                        <img
+                          src={`http://localhost:4000/uploads/${elems.img}`}
+                        />
+                      </div>
+                      <div>{elems.name}</div>
+                      <button className={styles.rate_btn}>Сделать ставку</button>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>

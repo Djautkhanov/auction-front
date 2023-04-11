@@ -18,7 +18,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/auth' element={<Authorization />} />
-        <Route path='/registration' element={<Registration />} />
+        <Route path='/registration' element={<Registration />} /> 
         <Route path= '/add/slot' element={<AddSlot/>}/>
         <Route path="/auction" element={<AuctionPage/>}/>
         <Route path="/own/page" element={<UserPage/>}/>

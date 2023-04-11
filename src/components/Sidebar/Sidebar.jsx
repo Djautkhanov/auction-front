@@ -3,16 +3,16 @@ import styles from "./Sidebar.module.scss";
 import { NavLink } from "react-router-dom";
 import { Slider } from "@mui/material";
 
-const Sidebar = () => {
-  const [minPrice, setMinPrice] = React.useState("1090");
-  const [maxPrice, setMaxPrice] = React.useState("100900");        
+
+const Sidebar = ({maxPrice, minPrice, setMaxPrice, setMinPrice}) => {                
+          
   const handleChange = (e, value) => {
     setMinPrice(value[0]);
     setMaxPrice(value[1]);
   };
 
   return (
-    <div className={styles.sidebar}>
+    <div className={styles.sidebar}>           
       <div className={styles.lists}>
         <h1>КАТЕГОРИЯ</h1>
         <ul className={styles.list}>

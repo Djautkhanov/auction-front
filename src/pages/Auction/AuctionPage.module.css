@@ -17,7 +17,7 @@
 }
 
 .btnInput {
-  height: 30px;
+  height: 22px;
   width: 440px;
   padding: 5px;
   /* margin-left: 100px; */
@@ -25,14 +25,7 @@
 .aucMain{
 margin-top: 30px;
 }
-/* 
-button {
-  background-color: dimgrey;
-  width: 100px;
-  border: none;
-  color: white;
-  height: 44px;
-  /* margin-top: 5px; */
+
  
 .aucMain{
   display: flex;
@@ -53,12 +46,79 @@ button {
 .wrapper {
   height: auto;
   justify-content: center;
+}
 
-  
+.side_bar{
+  margin-left: 50px;
 }
 
 .lot {
   opacity: 0.5;
 }
+
+.items_div {
+  gap: 100px;
+}
+
+.images img {
+  width: 250px;
+  height: 300px;
+  padding-top: 5px;
+}       
+
+button {
+  background-color: dimgrey;
+  width: 100px;
+  border: none;
+  color: white;
+  height: 36px;    
+
+}
+
+.items_div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.auctCart{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-left: 30px;
+  margin-top: 60px;
+}
+
+.rate_btn {
+  width: 150px;
+  height: 35px;
+  background-color: dimgrey;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 1px;
+  border: none;
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
