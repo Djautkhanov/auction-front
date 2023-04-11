@@ -1,165 +1,164 @@
-
 .background_wrapper {
-    margin: auto;
-    width: 1200px;
-    height: auto;
-    box-shadow: 29px 23px 32px 1px rgba(0, 0, 0, 0.3);
+  margin: auto;
+  width: 1200px;
+  height: auto;
+  box-shadow: 29px 23px 32px 1px rgba(0, 0, 0, 0.3);
+}
+.errorAuth {
+  color: red;
+  font-size: 18px;
+  width: 300px;
+  height: 35px;
+  border: none;
+  outline: 0;
+  padding-left: 8px;
+  background-color: white;
 }
 
 .background {
-    margin-top: 20px;
-    width: 1200px;
-    height: 450px;
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-image: url('/assets/main.jpg');
-    display: flex;
-    flex-direction: row-reverse; 
+  margin-top: 20px;
+  width: 1200px;
+  height: 450px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-image: url("/assets/main.jpg");
+  display: flex;
+  flex-direction: row-reverse;
 
-    .registration_text {
-        width: 393px;
-        margin-right: 170px;
-        margin-top: 30px;
-            h1 {
-            color: rgb(0, 0, 0);
-            text-align: center;
-            font-size: 46px;
-            font-family: Arial black;
-            border-bottom: 1px solid;
-            border-width: 5px;
-            }
-            a {
-            color: black;
-            margin-left: 5px;
-            margin-bottom: 1px;
-            font-family: arial black;
-            font-size: 14px;
-            }
-
-        .have_not_account {
-            margin-left: 80px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 230px;
-            height: 20px;
-            background-color: white;
-            padding-bottom: 1px;
-            border: 2px solid black;
-            margin-top: -17px;
-            border-radius: 2px;
-            span {
-                opacity: 0.7;
-                color: black;
-                font-family: arial;
-                font-size: 12px;
-            
-            }
-            
-        }
+  .registration_text {
+    width: 393px;
+    margin-right: 170px;
+    margin-top: 30px;
+    h1 {
+      color: rgb(0, 0, 0);
+      text-align: center;
+      font-size: 46px;
+      font-family: Arial black;
+      border-bottom: 1px solid;
+      border-width: 5px;
     }
+    a {
+      color: black;
+      margin-left: 5px;
+      margin-bottom: 1px;
+      font-family: arial black;
+      font-size: 14px;
+    }
+
+    .have_not_account {
+      margin-left: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 230px;
+      height: 20px;
+      background-color: white;
+      padding-bottom: 1px;
+      border: 2px solid black;
+      margin-top: -17px;
+      border-radius: 2px;
+      span {
+        opacity: 0.7;
+        color: black;
+        font-family: arial;
+        font-size: 12px;
+      }
+    }
+  }
 }
 
 .authorization_wrapper {
-    width: 500px;
-    height: 500px;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-    
+  width: 500px;
+  height: 500px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
 }
 
 .authorization {
-    margin: 42px;
-    width: auto;
-    height: auto;
-    .btn button {
-        width: 313px;
-        height: 42px;
-        border: 1px solid white;
-        background: rgb(0, 0, 0);
-        color: white;
-        font-size: 16px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: all 0.4s ease-out;
-    
-        
-        
-    }
-    button:hover {
-        background: white;
-        color: rgb(0, 0, 0);
-        border: 2px solid;
-    }
+  margin: 42px;
+  width: auto;
+  height: auto;
+  .btn button {
+    width: 313px;
+    height: 42px;
+    border: 1px solid white;
+    background: rgb(0, 0, 0);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.4s ease-out;
+  }
+  button:hover {
+    background: white;
+    color: rgb(0, 0, 0);
+    border: 2px solid;
+  }
 }
 
 .inputs_wrapper {
-    text-align: center;
-    input {
-        width: 300px;
-        height: 35px;
-        border: none;
-        border-bottom: 0.5px solid;
-        outline: 0;
-        padding-left: 8px;
-        
-    }
+  text-align: center;
+  input {
+    width: 300px;
+    height: 35px;
+    border: none;
+    border-bottom: 0.5px solid;
+    outline: 0;
+    padding-left: 8px;
+  }
 }
 
 .header_wrapper {
-    font-family: Helvetica;
-    font-size: 16px;
-    font-weight: 500;
-    height: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  font-family: Helvetica;
+  font-size: 16px;
+  font-weight: 500;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    .header_container {
+  .header_container {
     display: flex;
     align-items: center;
     width: 1200px;
     height: 150px;
     padding: 0 30px;
     border-right: 1px solid;
-    
-    }
+  }
 
-    .header {
-        width: 1200px;
-        height: 50px;
-        
-        display: flex;
-        justify-content: space-between;
-    }
+  .header {
+    width: 1200px;
+    height: 50px;
 
-    .logo {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .menu {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .menu {
     width: 700px;
-    }
+  }
 
-    ul {
-        display: flex;
-        justify-content: space-between;
+  ul {
+    display: flex;
+    justify-content: space-between;
+  }
+  li {
+    list-style-type: none;
+    :hover {
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 8px;
     }
-    li {
-        list-style-type: none;
-        :hover {
-            text-decoration: underline;
-            text-decoration-thickness: 2px;
-            text-underline-offset: 8px;
-        
-        }
-    }
-    a {
-        text-decoration: none;
-        color: black;
-    }
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
 }
-

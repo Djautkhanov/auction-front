@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import styles from "./AuctionPage.module.css";
 import Sidebar from "../../components/Sidebar/Sidebar";
+import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import { useDispatch, useSelector } from "react-redux";
 import { getItems } from "../../features/itemSlice";
@@ -27,63 +28,61 @@ const AuctionPage = () => {
       return item.name.toLowerCase().includes(serch.toLocaleLowerCase());
     });
 
-  useEffect(() => {
-    dispatch(getItems());
-  }, []);
+useEffect(() => {
+  dispatch(getItems())
+}, [dispatch])
 
   if (!price.length) {
     return "Loading";
   }
 
   return (
-    <div className={styles.wrapper}>
+    <>
       <Header />
-      <div className={styles.imgBlock}>
-        <div className={styles.imgDiv}>
-          <h1 className={styles.title}>АУКЦИОНЫ</h1>
-        </div>
-
-        <div className={styles.btnDiv}>
-          <div className={styles.lot}>Найдено {filteredItems.length} лота</div>
-          <input
-            value={serch}
-            onChange={(e) => setSerch(e.target.value)}
-            className={styles.btnInput}
-            type="text"
-            placeholder="Введите ключевые слова"
-          ></input>
-          <button>НАЙТИ</button>
-        </div>
-      </div>
-      <div className={styles.items_div}>
-        <div className={styles.side_bar}>
-          <Sidebar
-            minPrice={minPrice}
-            setMinPrice={setMinPrice}
-            maxPrice={maxPrice}
-            setMaxPrice={setMaxPrice}
-          />
-        </div>
-        <div className={styles.lots}>
-          {filteredItems.map((elems) => {
-            return (
-              <div className={styles.items_img} key={elems._id}>
-                <div className={styles.images}>
-                  <img
-                    src={`http://localhost:4000/uploads/${elems.img}`}
-                    alt="item"
-                  />
+      <div className={styles.wrapper}>
+        <div className={styles.imgBlock}>
+          <div className={styles.imgDiv}>
+            <h1 className={styles.title}>АУКЦИОНЫ</h1>
+          </div>
+          <div className={styles.aucMain}>
+            <div className={styles.side_bar}>
+              <Sidebar />
+            </div>
+            <div className={styles.auctMap}>
+              <div className={styles.btnDiv}>
+                <div className={styles.lot}>Нашли {filteredItems.length} лотов</div>
+                <div className={styles.search}>
+                <input
+                  className={styles.btnInput}
+                  type="text"
+                  placeholder="Введите ключевые слова"
+                  onChange={(e) => setSerch(e.target.value)}
+                  value={serch}
+                ></input>
+                <button>НАЙТИ</button>
                 </div>
-                <div>{elems.name}</div>
-                {/* <div>{elems.description}</div> */}
-                <div>{elems.starting_price} ₽</div>
-                <button className={styles.rate_btn}>Сделать ставку</button>
               </div>
-            );
-          })}
+              <div className={styles.auctCart}>
+              {filteredItems.map((elems) => {
+          return (
+            <div className={styles.items_img}  key={elems.id}>
+              <div className={styles.images}>
+                <img src={`http://localhost:4000/${elems.img}`} /> 
+              </div>
+              <div>{elems.name}</div>
+              <div>{elems.description}</div>
+              <div>{elems.starting_price}</div>   
+                 
+            </div>
+          );
+        })}      
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Sidebar.module.css";
+import styles from "./Sidebar.module.scss";
 import { NavLink } from "react-router-dom";
 import { Slider } from "@mui/material";
 
