@@ -15,9 +15,11 @@
   display: flex;
   border-bottom: 4px solid black  ;
 }
+.loaderMain{
+  display: block;
+}
 .userinfo{
   width: 300px;
-  /* background-color: blanchedalmond; */
   padding: 20px 0 0 20px; 
   display: flex;
   flex-direction: column;
@@ -29,7 +31,6 @@
 .userImage{
   width: 200px;
   height: 230px;
-  background-color: gray;
   border-radius: 30%;
 }
 .userMainImg{

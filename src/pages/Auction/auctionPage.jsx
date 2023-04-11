@@ -54,7 +54,8 @@ useEffect(() => {
               </div>
               <div>{elems.name}</div>
               <div>{elems.description}</div>
-              <div>{elems.starting_price}</div>      
+              <div>{elems.starting_price}</div>   
+                 
             </div>
           );
         })}      
