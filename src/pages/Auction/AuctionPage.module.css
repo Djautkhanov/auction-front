@@ -15,7 +15,7 @@
 }
 
 .btnInput {
-  height: 30px;
+  height: 22px;
   width: 440px;
   padding: 5px;
   margin-left: 100px;
@@ -26,7 +26,7 @@ button {
   width: 100px;
   border: none;
   color: white;
-  height: 44px;
+  height: 35px;
   margin-top: 5px;
 }
 
@@ -39,14 +39,16 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 70px;
+  margin-left: 180px;
 }
 
 .wrapper {
   height: auto;
   justify-content: center;
+}
 
-  
+.side_bar{
+  margin-left: 50px;
 }
 
 .lot {
@@ -55,4 +57,41 @@ button {
   margin-left: 120px;
 }
 
+.items_div {
+  gap: 100px;
+}
 
+.images img {
+  width: 250px;
+  height: 300px;
+  padding-top: 5px;
+}       
+
+/* .images{
+  margin-top: 20px;
+} */
+
+.lots {
+  display: flex;
+  margin-top: 37px;
+  padding-right: 120px;
+  justify-content: space-between;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.items_div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rate_btn {
+  width: 150px;
+  height: 35px;
+  background-color: dimgrey;
+  margin-top: 10px;
+  color: white;
+  cursor: pointer;
+  border-radius: 1px;
+  border: none;
+}

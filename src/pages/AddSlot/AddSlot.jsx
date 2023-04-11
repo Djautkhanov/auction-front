@@ -16,7 +16,7 @@ const AddSlot = () => {
   const [image, setimage] = useState(null);
   const [errors, setErrors] = useState({});
 
-  const token = `Bearer ${localStorage.getItem("token")}`;
+  const token = `Bearer ${localStorage.getItem("token")}`;  
   const err = useSelector(state => state.itemSlice.error)
 
   useEffect(() => {
@@ -160,7 +160,7 @@ console.log("zdec",err);
               <div className={styles.addImage}>
                 {previewUrls
                   ? previewUrls.map((url) => (
-                      <img src={url} alt="" className={styles.imgInpt} />
+                      <img src={url} alt="" className={styles.imgInpt} />        
                     ))
                   : ""}
               </div>

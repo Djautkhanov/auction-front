@@ -8,13 +8,32 @@ import { getItems } from "../../features/itemSlice";
 const AuctionPage = () => {
   const [serch, setSerch] = useState("");
   const dispatch = useDispatch();
-  const items = useSelector((state) => state.itemSlice.items).filter((item) => {
-    return item.name.toLowerCase().includes(serch.toLocaleLowerCase());          
-  });
+
+  const [minPrice, setMinPrice] = React.useState("1090");
+  const [maxPrice, setMaxPrice] = React.useState("100900");
+
+  const price = useSelector((state) => state.itemSlice.items);
+
+  const filteredItems = price
+    .filter((item) => {
+      if (
+        item.starting_price >= Number(minPrice) &&
+        item.starting_price <= Number(maxPrice)
+      ) {
+        return item;
+      }
+    })
+    .filter((item) => {
+      return item.name.toLowerCase().includes(serch.toLocaleLowerCase());
+    });
 
   useEffect(() => {
     dispatch(getItems());
   }, []);
+
+  if (!price.length) {
+    return "Loading";
+  }
 
   return (
     <div className={styles.wrapper}>
@@ -25,7 +44,7 @@ const AuctionPage = () => {
         </div>
 
         <div className={styles.btnDiv}>
-          <div className={styles.lot}>Нашли 10 лотов</div>             
+          <div className={styles.lot}>Найдено {filteredItems.length} лота</div>
           <input
             value={serch}
             onChange={(e) => setSerch(e.target.value)}
@@ -36,20 +55,33 @@ const AuctionPage = () => {
           <button>НАЙТИ</button>
         </div>
       </div>
-      <div className={styles.side_bar}>
-        <Sidebar />
-        {items.map((elems) => {
-          return (
-            <div className={styles.items_img}  key={elems.id}>
-              <div className={styles.images}>
-                <img src={`http://localhost:4000/${elems.img}`} />        
+      <div className={styles.items_div}>
+        <div className={styles.side_bar}>
+          <Sidebar
+            minPrice={minPrice}
+            setMinPrice={setMinPrice}
+            maxPrice={maxPrice}
+            setMaxPrice={setMaxPrice}
+          />
+        </div>
+        <div className={styles.lots}>
+          {filteredItems.map((elems) => {
+            return (
+              <div className={styles.items_img} key={elems._id}>
+                <div className={styles.images}>
+                  <img
+                    src={`http://localhost:4000/uploads/${elems.img}`}
+                    alt="item"
+                  />
+                </div>
+                <div>{elems.name}</div>
+                {/* <div>{elems.description}</div> */}
+                <div>{elems.starting_price} ₽</div>
+                <button className={styles.rate_btn}>Сделать ставку</button>
               </div>
-              <div>{elems.name}</div>
-              <div>{elems.description}</div>
-              <div>{elems.starting_price}</div>      
-            </div>
-          );
-        })}      
+            );
+          })}
+        </div>
       </div>
     </div>
   );
