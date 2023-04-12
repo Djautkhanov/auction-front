@@ -6,10 +6,10 @@ import { useSelector } from 'react-redux'
 
 export const Header = () => {
 
-    const token = useSelector((state) => state.authSlice.token)
+    const token = useSelector((state) => state.authSlice.token)  
 
     const handleLogOut = () => {
-        localStorage.removeItem("token")
+        localStorage.removeItem("token")    
         window.location.reload()
     }
 
@@ -20,7 +20,7 @@ export const Header = () => {
                 <div className={styles.header}>
                     <div className={styles.logo}>
                         <Link to='/'>
-                            <img alt='logo' width={250} height={80} src={logo_img} />
+                            <img alt='logo' width={250} height={80} src={logo_img} />       
                         </Link>
                     </div>
                     <nav className={styles.menu}>

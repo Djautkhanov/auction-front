@@ -12,24 +12,24 @@ const UserPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("token");  
 
   useEffect(() => {
     dispatch(getUserBytoken(token));
     dispatch(getUsers());
     dispatch(getItems())
     if (!token) {
-      navigate("/auth");
+      navigate("/auth"); 
     }
   }, [dispatch]);
 
-  const id = localStorage.getItem("userId");
+  const id = localStorage.getItem("userId"); 
 
   const user =  useSelector((state) =>
     state.authSlice.user.find((user) => user._id === id)
   );
   console.log(user);
-  const items = useSelector((state) => state.itemSlice.items.filter((item) => item.user_id === user._id))
+  const items = useSelector((state) => state.itemSlice.items.filter((item) => item.user_id === user._id))  
   console.log(items);
 
   if(!user){

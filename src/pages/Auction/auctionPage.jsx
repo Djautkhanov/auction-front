@@ -13,20 +13,20 @@ const AuctionPage = () => {
   const [minPrice, setMinPrice] = React.useState("1090");
   const [maxPrice, setMaxPrice] = React.useState("100900");
 
-  const price = useSelector((state) => state.itemSlice.items);
+  const price = useSelector((state) => state.itemSlice.items);      
 
   const filteredItems = price
     .filter((item) => {
       if (
         item.starting_price >= Number(minPrice) &&
-        item.starting_price <= Number(maxPrice)
+        item.starting_price <= Number(maxPrice)         
       ) {
         return item;
       }
     })
     .filter((item) => {
-      return item.name.toLowerCase().includes(serch.toLocaleLowerCase());
-    });
+      return item.name.toLowerCase().includes(serch.toLocaleLowerCase());   
+    }) 
 
   useEffect(() => {
     dispatch(getItems());
@@ -56,14 +56,14 @@ const AuctionPage = () => {
             <div className={styles.auctMap}>
               <div className={styles.btnDiv}>
                 <div className={styles.lot}>
-                  Нашли {filteredItems.length} лотов
+                  Найдено {filteredItems.length} лотов
                 </div>
                 <div className={styles.search}>
                   <input
                     className={styles.btnInput}
                     type="text"
                     placeholder="Введите ключевые слова"
-                    onChange={(e) => setSerch(e.target.value)}
+                    onChange={(e) => setSerch(e.target.value)}       
                     value={serch}
                   ></input>
                   <button>НАЙТИ</button>
@@ -79,7 +79,7 @@ const AuctionPage = () => {
                         />
                       </div>
                       <div>{elems.name}</div>
-                      <button className={styles.rate_btn}>Сделать ставку</button>
+                      <button className={styles.rate_btn}>Сделать ставку</button>  
                     </div>
                   );
                 })}

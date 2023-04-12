@@ -7,7 +7,7 @@ import AuctionPage from "./pages/Auction/auctionPage";
 import AddSlot from "./pages/AddSlot/AddSlot";
 import UserPage from "./pages/UserPage/UserPage";
 import "./App.css"
-import AddAuction from "./pages/AddAuction/AddAuction";
+import AddAuction from "./pages/AddAuction/AddAuction";        
 
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
         <Route path='/registration' element={<Registration />} /> 
         <Route path= '/add/slot' element={<AddSlot/>}/>
         <Route path="/auction" element={<AuctionPage/>}/>
-        <Route path="/own/page" element={<UserPage/>}/>
+        <Route path="/own/page" element={<UserPage/>}/>      
       </Routes>
     </div>
     )

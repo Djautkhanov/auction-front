@@ -14,7 +14,7 @@ export const Users = () => {
     return (
         <div>
             {users.map((user) => {
-                return <div>{user.login}</div>
+                return <div>{user.login}</div>       
             })}
         </div>
     )
