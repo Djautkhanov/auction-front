@@ -10,7 +10,7 @@ import { Link, useParams } from "react-router-dom";
 const AuctionPage = () => {
   const [serch, setSerch] = useState("");
   const dispatch = useDispatch();
-  const id = useParams()
+  const { category } = useParams();
 
   const [minPrice, setMinPrice] = React.useState("1090");
   const [maxPrice, setMaxPrice] = React.useState("100900");
@@ -21,14 +21,20 @@ const AuctionPage = () => {
     .filter((item) => {
       if (
         item.starting_price >= Number(minPrice) &&
-        item.starting_price <= Number(maxPrice)         
+        item.starting_price <= Number(maxPrice)
       ) {
         return item;
       }
     })
     .filter((item) => {
-      return item.name.toLowerCase().includes(serch.toLocaleLowerCase());   
-    }) 
+      return item.name.toLowerCase().includes(serch.toLocaleLowerCase());
+    })
+    .filter((item) => {
+      if (!category) {
+        return true;
+      }
+      return item.category === category;
+    });
 
   useEffect(() => {
     dispatch(getItems());
@@ -65,7 +71,7 @@ const AuctionPage = () => {
                     className={styles.btnInput}
                     type="text"
                     placeholder="Введите ключевые слова"
-                    onChange={(e) => setSerch(e.target.value)}       
+                    onChange={(e) => setSerch(e.target.value)}
                     value={serch}
                   ></input>
                   <button>НАЙТИ</button>
@@ -80,11 +86,13 @@ const AuctionPage = () => {
                           src={`http://localhost:4000/uploads/${elems.img}`}
                         />
                       </div>
-                      <div>{elems.name}</div>  
-                      <div>{elems.starting_price}</div>    
-                <Link to={`/one/auction/${elems._id}`} > 
-                <button className={styles.rate_btn} >Сделать ставку</button>  
-                </Link>
+                      <div>{elems.name}</div>
+                      <div>{elems.starting_price}</div>
+                      <Link to={`/one/auction/${elems._id}`}>
+                        <button className={styles.rate_btn}>
+                          Сделать ставку
+                        </button>
+                      </Link>
                     </div>
                   );
                 })}
