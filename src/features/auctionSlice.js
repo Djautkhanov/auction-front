@@ -39,7 +39,7 @@ export const payAuc = createAsyncThunk(
           "Content-Type": "application/json",
           Authorization: `Bearer ${thunkAPI.getState().authSlice.token}`,
         },
-        body: JSON.stringify({ amount: data.price }),
+        body: JSON.stringify({ amount: data.price }),     
       });
       return await item.json();
     } catch (error) {

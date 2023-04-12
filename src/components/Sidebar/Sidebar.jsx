@@ -1,29 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Sidebar.module.scss";
 import { NavLink } from "react-router-dom";
-import { Slider } from "@mui/material";
+import { Slider } from "@mui/material"; 
 
+const Sidebar = ({ maxPrice, minPrice, setMaxPrice, setMinPrice }) => {
 
-const Sidebar = ({maxPrice, minPrice, setMaxPrice, setMinPrice}) => {                
-          
   const handleChange = (e, value) => {
     setMinPrice(value[0]);
-    setMaxPrice(value[1]);
+    setMaxPrice(value[1]);         
   };
 
   return (
-    <div className={styles.sidebar}>           
+    <div className={styles.sidebar}>
       <div className={styles.lists}>
         <h1>КАТЕГОРИЯ</h1>
         <ul className={styles.list}>
-          <NavLink to="/">           
+          <NavLink to="/">
             <li>Живопись</li>
           </NavLink>
           <NavLink to="/">
-            <li>Скульптура</li> 
+            <li>Скульптура</li>
           </NavLink>
           <NavLink to="/">
-            <li>Цифровое исскуство</li>  
+            <li>Цифровое исскуство</li>
           </NavLink>
           <NavLink to="/">
             <li>Handmade</li>
@@ -34,9 +33,12 @@ const Sidebar = ({maxPrice, minPrice, setMaxPrice, setMinPrice}) => {
         <h2>ПРОДАННЫЕ РАБОТЫ</h2>
         <div className={styles.divBlock}>
           <div className={styles.input}>
-            <input className={styles.checkbox} type="checkbox" />   
+            <input
+              className={styles.checkbox}    
+              type="checkbox"
+            />
             Показать проданные лоты
-          </div>
+          </div>     
           <div className={styles.price}>
             <div className={styles.textprice}>
               <h3>ТЕКУЩАЯ ЦЕНА $ </h3>
@@ -50,9 +52,9 @@ const Sidebar = ({maxPrice, minPrice, setMaxPrice, setMinPrice}) => {
                 />
                 <input
                   value={maxPrice}
-                  onChange={(e) => setMaxPrice(e.target.value)}
+                  onChange={(e) => setMaxPrice(e.target.value)}      
                   type="text"
-                  placeholder="До"   
+                  placeholder="До"
                 />
               </div>
               <div className={styles.slidecontainer}>
@@ -63,8 +65,7 @@ const Sidebar = ({maxPrice, minPrice, setMaxPrice, setMinPrice}) => {
                   value={[minPrice, maxPrice]}
                   onChange={handleChange}
                   valueLabelDisplay="auto"
-                  style={{ color: 'gainsboro'}}
-                
+                  style={{ color: "gainsboro" }}
                 />
               </div>
             </div>
@@ -75,6 +76,4 @@ const Sidebar = ({maxPrice, minPrice, setMaxPrice, setMinPrice}) => {
   );
 };
 
-export default Sidebar;
-
-
+export default Sidebar; 

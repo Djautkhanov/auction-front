@@ -41,7 +41,7 @@ const OneAuc = () => {
         dispatch(payAuc({id: auc._id, price: Number(price)}))
         console.log(1)
     }
-    const currentByer = auc.rate[auc.rate.length - 1]
+    const currentByer = auc.rate[auc.rate.length - 1]   
     console.log(currentByer)
   return (
     <>
