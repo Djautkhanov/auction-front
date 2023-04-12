@@ -8,6 +8,7 @@ import AddSlot from "./pages/AddSlot/AddSlot";
 import UserPage from "./pages/UserPage/UserPage";
 import "./App.css"
 import AddAuction from "./pages/AddAuction/AddAuction";
+import OneAuc from "./pages/OneAuc/OneAuc";
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path= '/add/slot' element={<AddSlot/>}/>
         <Route path="/auction" element={<AuctionPage/>}/>
         <Route path="/own/page" element={<UserPage/>}/>
+        <Route path="/one/auction/:id" element={<OneAuc/>}/>
       </Routes>
     </div>
     )
@@ -36,6 +38,7 @@ function App() {
         <Route path= '/add/slot' element={<AddSlot/>}/>
         <Route path="/own/page" element={<UserPage/>}/>
         <Route path="/item/add/:id" element={<AddAuction/>}/>
+        <Route path="/one/auction/:id" element={<OneAuc/>}/>
       </Routes>
     </div>
 
