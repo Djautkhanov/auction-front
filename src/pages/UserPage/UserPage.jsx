@@ -43,7 +43,7 @@ const UserPage = () => {
 
   console.log(id);
 
-  if (!user || !id || items.length === 0) {
+  if (!user || !id) {
     return (
       <>
         <Header />
@@ -91,16 +91,16 @@ const UserPage = () => {
                   return (
                     <div className={styles.ItemCard}>
                       <img
-                        src={`http://localhost:4000/uploads/${item.img}`}
+                        src={`http://localhost:4000/uploads/${item.img}`}       
                         alt=""
                         className={styles.ItemImage}
                       />
-                      <div className={styles.itemName}>{item.name}</div>
+                      <div className={styles.itemName}>{item.name}</div>     
                       {item.status === "На аукционе" ? (
                         <Link to={`/one/auction/${item._id}`}>
                           <button className={styles.itemBtn}>
                             {item.status}
-                          </button>
+                          </button>         
                         </Link>
                       ) : item.status === "Продано" ? (
                         <button className={styles.itemBtn} disabled={true}>
@@ -108,7 +108,7 @@ const UserPage = () => {
                           {item.status}
                         </button>
                       ) : (
-                        <Link to={`/item/add/${item._id}`}>
+                        <Link to={`/item/add/${item._id}`}>  
                         <button className={styles.itemBtn}>{item.status}</button>
                         </Link>
                       )}

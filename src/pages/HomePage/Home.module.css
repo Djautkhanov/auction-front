@@ -1,0 +1,25 @@
+.images img {
+    width: 250px;
+    height: 300px;
+    padding-top: 5px;
+  }  
+
+
+  .auctCart{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-left: 30px;
+    margin-top: 60px;
+  }
+
+  .rates_btn {
+    width: 150px;
+    height: 35px;
+    background-color: dimgrey;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 1px;
+    border: none;
+    color: white;
+  }

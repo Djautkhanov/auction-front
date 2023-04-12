@@ -19,7 +19,7 @@
   display: block;
 }
 .userinfo{
-  width: 540px;
+  width: 3  40px;
   padding: 20px 0 0 20px; 
   display: flex;
   flex-direction: column;
@@ -40,7 +40,7 @@
 .User{
   display: flex;
   font-size: 25px;
-  width: 71%;
+  width: 75%;
   justify-content: space-between;
 }
 .userMain{

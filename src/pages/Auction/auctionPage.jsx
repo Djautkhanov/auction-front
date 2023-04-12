@@ -5,10 +5,12 @@ import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import { useDispatch, useSelector } from "react-redux";
 import { getItems } from "../../features/itemSlice";
+import { Link, useParams } from "react-router-dom";
 
 const AuctionPage = () => {
   const [serch, setSerch] = useState("");
   const dispatch = useDispatch();
+  const id = useParams()
 
   const [minPrice, setMinPrice] = React.useState("1090");
   const [maxPrice, setMaxPrice] = React.useState("100900");
@@ -72,14 +74,17 @@ const AuctionPage = () => {
               <div className={styles.auctCart}>
                 {filteredItems.map((elems) => {
                   return (
-                    <div className={styles.items_img} key={elems.id}>
+                    <div className={styles.items_img} key={elems._id}>
                       <div className={styles.images}>
                         <img
                           src={`http://localhost:4000/uploads/${elems.img}`}
                         />
                       </div>
-                      <div>{elems.name}</div>
-                      <button className={styles.rate_btn}>Сделать ставку</button>  
+                      <div>{elems.name}</div>  
+                      <div>{elems.starting_price}</div>    
+                <Link to={`/one/auction/${elems._id}`} > 
+                <button className={styles.rate_btn} >Сделать ставку</button>  
+                </Link>
                     </div>
                   );
                 })}

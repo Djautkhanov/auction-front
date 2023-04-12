@@ -31,13 +31,19 @@
     }
 
     .btn {
-        :hover {
-            background-color: initial;
-            color: rgb(0, 0, 0);
-            border: 3px solid rgb(0, 0, 0);
-
-            
+        a {
+            text-decoration: none;
+            color: white;
         }
+        button:hover {
+            background-color: initial;
+            border: 3px solid rgb(0, 0, 0);
+            a {
+                color: black    ;
+            }
+            color: rgb(0, 0, 0);  
+        }
+
     
     button {
             width: 450px;

@@ -5,8 +5,8 @@ import Registration from "./pages/RegistrationPage/Registration";
 import { useSelector } from "react-redux";
 import AuctionPage from "./pages/Auction/auctionPage";
 import AddSlot from "./pages/AddSlot/AddSlot";
-import UserPage from "./pages/UserPage/UserPage";
-import "./App.css"
+import UserPage from "./pages/UserPage/UserPage";  
+import "./App.css" 
 import AddAuction from "./pages/AddAuction/AddAuction";
 import OneAuc from "./pages/OneAuc/OneAuc";
 
@@ -33,11 +33,11 @@ function App() {
     <div className='app'>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/auth' element={<Navigate to='/' />} />
+        <Route path='/auth' element={<Navigate to='/' />} />  
         <Route path="/auction" element={<AuctionPage/>}/>
         <Route path= '/add/slot' element={<AddSlot/>}/>
         <Route path="/own/page" element={<UserPage/>}/>
-        <Route path="/item/add/:id" element={<AddAuction/>}/>
+        <Route path="/item/add/:id" element={<AddAuction/>}/>  
         <Route path="/one/auction/:id" element={<OneAuc/>}/>
       </Routes>
     </div>

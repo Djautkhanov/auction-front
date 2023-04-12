@@ -1,6 +1,7 @@
 import React from 'react'
 // import { Link } from 'react-router-dom'
 import styles from '../Main/Main.module.scss'
+import { Link } from 'react-router-dom'
 
 export const Main = () => {
     return (
@@ -13,9 +14,9 @@ export const Main = () => {
                         </h1>
                         <div className={styles.btn}>
                             <button>
-                                {/* <Link to='/registration'> */}
+                                <Link to='/registration'>
                                     стать участником
-                                {/* </Link> */}
+                                 </Link> 
                             </button>
                         </div>
                     </div>

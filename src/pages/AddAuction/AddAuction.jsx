@@ -26,7 +26,7 @@ const AddAuction = () => {
 
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState("");       
 
   const handleSubmit = (e) => {
     e.preventDefault();
