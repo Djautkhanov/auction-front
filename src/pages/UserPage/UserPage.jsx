@@ -32,7 +32,7 @@ const UserPage = () => {
   console.log(user);
   const items = useSelector((state) => {
     if (user) {
-      return state.itemSlice.items.filter((item) => item.user_id === user._id);
+      return state.itemSlice.items.filter((item) => item.user_id === user._id);         
     }
     return [];
   });

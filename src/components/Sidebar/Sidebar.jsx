@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState } from "react";  
 import styles from "./Sidebar.module.scss";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, } from "react-router-dom";
 import { Slider } from "@mui/material"; 
-import { useSelector } from "react-redux";
+
 
 const Sidebar = ({ maxPrice, minPrice, setMaxPrice, setMinPrice }) => {
   
@@ -10,9 +10,6 @@ const Sidebar = ({ maxPrice, minPrice, setMaxPrice, setMinPrice }) => {
     setMinPrice(value[0]);
     setMaxPrice(value[1]);         
   };
-
-
-
   return (
     <div className={styles.sidebar}>
       <div className={styles.lists}>
@@ -21,7 +18,7 @@ const Sidebar = ({ maxPrice, minPrice, setMaxPrice, setMinPrice }) => {
           <NavLink to="/auction/Живопись">
             <li>Живопись</li>
           </NavLink>
-          <NavLink to="/">
+          <NavLink to="/">  
             <li>Скульптура</li>
           </NavLink>
           <NavLink to="/auction/Цифровое искусство"> 

@@ -88,7 +88,7 @@ const AuctionPage = () => {
                       </div>
                       <div>{elems.name}</div>
                       <div>{elems.starting_price}</div>
-                      <Link to={`/one/auction/${elems._id}`}>
+                      <Link to={`/one/auction/${elems._id}`}>       
                         <button className={styles.rate_btn}>
                           Сделать ставку
                         </button>

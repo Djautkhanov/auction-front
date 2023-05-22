@@ -8,11 +8,11 @@ import Footer from "../../components/Footer/Footer";
 import style from "./AddAuction.module.css";
 import DatePicker from "react-datepicker";
 import { addAuction } from "../../features/auctionSlice";
-import AuctionAddTime from "../../components/TimeAuction/TimeAuction";
+import AuctionAddTime from "../../components/TimeAuction/TimeAuction";    
 
 const AddAuction = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const id = useParams();
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const AddAuction = () => {
 
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  const [status, setStatus] = useState("");       
+  const [status, setStatus] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,10 +35,10 @@ const AddAuction = () => {
     formData.append("end_time", endDate);
     formData.append("item_id", id.id);
     dispatch(addAuction(formData));
-    setStatus("Лот успешно выставлен на аукцион")
+    setStatus("Лот успешно выставлен на аукцион");
     setTimeout(() => {
-      navigate(`/one/auction/${item._id}`)
-    }, 3000)
+      navigate(`/one/auction/${item._id}`);
+    }, 3000);
   };
 
   if (!item) {
@@ -52,7 +52,6 @@ const AddAuction = () => {
       </>
     );
   }
-
 
   return (
     <>
@@ -69,14 +68,16 @@ const AddAuction = () => {
             alt=""
             className={style.itemimg}
           />
-        <div className={style.itemName}>{item.name}</div>
-        <div className={style.itemText}>{item.description}</div>
+          <div className={style.itemName}>{item.name}</div>
+          <div className={style.itemText}>{item.description}</div>
         </div>
         <div className={style.timerMain}>
           {/* <AuctionAddTime/> */}
           <form onSubmit={handleSubmit}>
             <div className={style.startTimeBlock}>
-              <label htmlFor="start_time" className={style.label12}>Дата и время начала аукциона:</label>
+              <label htmlFor="start_time" className={style.label12}>
+                Дата и время начала аукциона:
+              </label>
               <br />
               <DatePicker
                 selected={startDate}
@@ -97,7 +98,9 @@ const AddAuction = () => {
               />
             </div>
             <div className={style.endTimeBlock}>
-              <label htmlFor="end_time" className={style.label12}>Дата и время окончания аукциона:</label>
+              <label htmlFor="end_time" className={style.label12}>
+                Дата и время окончания аукциона:
+              </label>
               <br />
               <DatePicker
                 selected={endDate}
@@ -117,10 +120,16 @@ const AddAuction = () => {
                 id="end_time"
               />
             </div>
-            <button type="submit" className={style.dateBtn}>Выставить на аукцион </button>
+            <button type="submit" className={style.dateBtn}>
+              Выставить на аукцион{" "}
+            </button>
           </form>
-          <div className={style.startPrice}>Блиц цена: <span>{item.blitzPrice}₽</span> </div>
-          <div className={style.startPrice}>Начальная цена: <span>{item.starting_price}₽</span> </div>
+          <div className={style.startPrice}>
+            Блиц цена: <span>{item.blitzPrice}₽</span>{" "}
+          </div>
+          <div className={style.startPrice}>
+            Начальная цена: <span>{item.starting_price}₽</span>{" "}
+          </div>
           {status && <div className={style.status}>{status}</div>}
         </div>
       </div>
