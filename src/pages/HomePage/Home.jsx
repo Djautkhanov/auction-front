@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 export const Home = () => {
   const { category } = useParams();
-  console.log(category);
+  console.log(category);     
 
   const dispatch = useDispatch();
 
